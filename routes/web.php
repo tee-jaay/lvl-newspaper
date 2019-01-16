@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/post','Frontend\PostController');
+Route::resource('/blog','Frontend\PostController');
 
 Auth::routes();
 
