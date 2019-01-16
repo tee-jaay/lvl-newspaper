@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('/post','Frontend\PostController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
