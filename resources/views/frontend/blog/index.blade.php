@@ -61,6 +61,8 @@
                                     </div>
                                 </div><!-- Single Blog End -->
                         @endforeach
+                    @else
+                        <h3>No post found!</h3>
                     @endif
 
                     <div class="page-pagination-2 text-center">
