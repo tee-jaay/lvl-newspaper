@@ -15,7 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/blog','Frontend\PostController');
+Route::get('/blog','Frontend\PostController@index')->name('blog');
+Route::resource('/post','Frontend\PostController');
 
 Auth::routes();
 

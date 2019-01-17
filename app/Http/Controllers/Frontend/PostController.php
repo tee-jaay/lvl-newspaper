@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,8 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
-        return view('frontend.blog.index');
+        $posts = Post::orderBy('id','desc')->take(3)->get();
+        return view('frontend.blog.index', compact('posts'));
     }
 
     /**
@@ -45,9 +46,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $post = Post::where('slug', $slug)->first();
+        return view('frontend.blog.show', compact('post'));
     }
 
     /**
