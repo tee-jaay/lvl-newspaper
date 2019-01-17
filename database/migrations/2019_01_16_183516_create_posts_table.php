@@ -19,13 +19,11 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->unsignedInteger('category_id');
-            $table->text('dropcap')->nullable();
-            $table->text('first_italic')->nullable();
-            $table->text('content')->nullable();
-            $table->text('second_italic')->nullable();
-            $table->text('ordered_list')->nullable();
-            $table->text('blackquote')->nullable();
-            $table->text('end_para')->nullable();
+            $table->text('top_text')->nullable();
+            $table->text('italic')->nullable();
+            $table->text('mid_text')->nullable();
+            $table->text('color_quote')->nullable();
+            $table->text('bottom_text')->nullable();
             $table->timestamps();
         });
     }

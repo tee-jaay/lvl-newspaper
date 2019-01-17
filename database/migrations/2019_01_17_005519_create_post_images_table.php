@@ -17,9 +17,9 @@ class CreatePostImagesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('post_id');
             $table->string('post_header');
-            $table->string('float_right')->nullable();
             $table->string('main');
-            $table->string('blockquote_bg')->nullable();
+            $table->string('float_left')->nullable();
+            $table->string('float_right')->nullable();
             $table->timestamps();
         });
     }
