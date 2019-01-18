@@ -17,6 +17,25 @@
             content: url({{asset('assets/Frontend/img/shape/mail-2.png')}});
 
         }
+
+        .page-pagination-2 ul li {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #dddddd;
+            line-height: 30px;
+            text-align: center;
+            color: #666666;
+            font-weight: 600;
+            border-radius: 50%;
+        }
+
+        .page-pagination-2 ul li.active {
+            background-color: #00c8fa !important;
+            border-color: #00c8fa !important;
+            color: #ffffff !important;
+        }
+
     </style>
 @endpush
 
@@ -74,16 +93,18 @@
         @else
             <h3>No post found!</h3>
         @endif
-
-        <div class="page-pagination-2 text-center">
-            <ul>
-                <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-            </ul>
+        <div>
+            {!! $posts->links("pagination::default") !!}
         </div>
+        {{--<div class="page-pagination-2 text-center">--}}
+            {{--<ul>--}}
+                {{--<li><a href="#"><i class="fa fa-angle-left"></i></a></li>--}}
+                {{--<li class="active"><a href="#">1</a></li>--}}
+                {{--<li><a href="#">2</a></li>--}}
+                {{--<li><a href="#">3</a></li>--}}
+                {{--<li><a href="#"><i class="fa fa-angle-right"></i></a></li>--}}
+            {{--</ul>--}}
+        {{--</div>--}}
 
     </div>
 @stop
