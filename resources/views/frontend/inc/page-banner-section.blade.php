@@ -5,7 +5,7 @@
 
             <!-- Page Banner Start -->
             <div class="col-12">
-                <div class="page-banner" style="background-image: url({{asset('assets/Frontend/img/banner/page-banner-fashion.jpg')}})">
+                <div class="page-banner" style="background-image: url(https://lorempixel.com/770/294/?12546)">
                     <h2>Blog</h2>
                     <ol class="page-breadcrumb">
                         <li><a href="#">Home</a></li>

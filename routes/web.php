@@ -14,10 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+// Blog
 Route::get('/blog','Frontend\PostController@index')->name('blog');
 Route::resource('/post','Frontend\PostController');
-
+// Page
+Route::get('/contact','Frontend\PageController@contact')->name('contact');
+// Auth
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -10,9 +10,9 @@
                 <ul class="header-links">
                     <li class="disabled block d-none d-md-block"><a href="#"><i class="fa fa-clock-o"></i> Sunday, March 25, 2017</a></li>
                     <li class="d-none d-md-block"><a href="#"><i class="fa fa-mixcloud"></i> <span class="weather-degrees">20 <span class="unit">c</span> </span> <span class="weather-location">- Sydney</span></a></li>
-                    <li><a href="#"><i class="fa fa-user-circle-o"></i>Sign Up</a></li>
-                    <li><a href="contact-us.html"><i class="fa fa-headphones"></i>Contact</a></li>
-                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="{{route('register')}}"><i class="fa fa-user-circle-o"></i>Sign Up</a></li>
+                    <li><a href="{{route('contact')}}"><i class="fa fa-headphones"></i>Contact</a></li>
+                    <li><a href="{{route('blog')}}">Blog</a></li>
                 </ul>
 
             </div><!-- Header Top Links End -->

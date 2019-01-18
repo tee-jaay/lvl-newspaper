@@ -1,6 +1,6 @@
 @extends('frontend.layout.blog')
 
-@section('title','Title')
+@section('title','Post Details')
 
 @push('styles')
 @endpush
@@ -20,8 +20,11 @@
 
                             <!-- Meta -->
                             <div class="meta fix">
-                                <a href="{{$post->category['slug']}}" class="meta-item category fashion">{{$post->category['name']}}</a>
-                                <a href="#" class="meta-item author"><img src="{{asset('assets/Frontend/img/post/post-author-1.jpg')}}" alt="post author">{{$post->author['name']}}</a>
+                                <a href="{{$post->category['slug']}}"
+                                   class="meta-item category fashion">{{$post->category['name']}}</a>
+                                <a href="#" class="meta-item author"><img
+                                            src="{{asset('assets/Frontend/img/post/post-author-1.jpg')}}"
+                                            alt="post author">{{$post->author['name']}}</a>
                                 <span class="meta-item date"><i class="fa fa-clock-o"></i>{{date('d F Y', strtotime($post->created_at))}}</span>
                                 <a href="#" class="meta-item comments"><i class="fa fa-comments"></i>(38)</a>
                                 <span class="meta-item view"><i class="fa fa-eye"></i>(3483)</span>
@@ -45,7 +48,8 @@
                                 <blockquote class="blockquote">
                                     <p>{{$post->color_quote}}</p>
                                 </blockquote>
-                                <p> <img class="float-right" src="{{$post->image->float_right}}" alt="post">{!! $post->bottom_text !!}</p>
+                                <p><img class="float-right ml-2" src="{{$post->image->float_right}}"
+                                        alt="post">{!! $post->bottom_text !!}</p>
 
                             </div>
 
@@ -72,18 +76,22 @@
 
                     <!-- Previous & Next Post Start -->
                     <div class="post-nav mb-50">
-                        <a href="#" class="prev-post"><span>previous post</span>he 10 Best Beauty Looks: Week of September 11, 2017.</a>
-                        <a href="#" class="next-post"><span>next post</span>The top 7 collections of New York fashion week.</a>
+                        <a href="#" class="prev-post"><span>previous post</span>he 10 Best Beauty Looks: Week of
+                            September 11, 2017.</a>
+                        <a href="#" class="next-post"><span>next post</span>The top 7 collections of New York fashion
+                            week.</a>
                     </div><!-- Previous & Next Post End -->
 
                     <!-- Post Author Start -->
                     <div class="post-author fix mb-50">
 
-                        <div class="image float-left"><img src="img/post/post-author-1.jpg" alt="post-author"></div>
+                        <div class="image float-left"><img src="{{asset('assets/Frontend/img/post/post-author-1.jpg')}}"
+                                                           alt="post-author"></div>
 
                         <div class="content fix">
                             <h5><a href="#">Alex bin do</a></h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris efficitur is fringillas. Sed cursus mi, ut auctor tellus  Curabitur susvenenatis.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris efficitur is fringillas.
+                                Sed cursus mi, ut auctor tellus Curabitur susvenenatis.</p>
                             <div class="social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -109,16 +117,24 @@
                         <!-- Post Block Body Start -->
                         <div class="body">
 
-                            <div class="two-column-post-carousel column-post-carousel post-block-carousel row slick-initialized slick-slider"><button type="button" class="slick-prev slick-arrow" style="display: block;"><i class="fa fa-angle-left"></i></button>
+                            <div class="two-column-post-carousel column-post-carousel post-block-carousel row slick-initialized slick-slider">
+                                <button type="button" class="slick-prev slick-arrow" style="display: block;"><i
+                                            class="fa fa-angle-left"></i></button>
 
-                                <div aria-live="polite" class="slick-list draggable"><div class="slick-track" role="listbox" style="opacity: 1; width: 2653px; transform: translate3d(-758px, 0px, 0px);"><div class="col-md-6 col-12 slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" tabindex="-1" style="width: 379px;">
+                                <div aria-live="polite" class="slick-list draggable">
+                                    <div class="slick-track" role="listbox"
+                                         style="opacity: 1; width: 2653px; transform: translate3d(-758px, 0px, 0px);">
+                                        <div class="col-md-6 col-12 slick-slide slick-cloned" data-slick-index="-2"
+                                             aria-hidden="true" tabindex="-1" style="width: 379px;">
 
                                             <!-- Overlay Post Start -->
                                             <div class="post post-overlay hero-post">
                                                 <div class="post-wrap">
 
                                                     <!-- Image -->
-                                                    <div class="image"><img src="img/post/post-49.jpg" alt="post"></div>
+                                                    <div class="image"><img
+                                                                src="{{asset('assets/Frontend/img/post/post-49.jpg')}}"
+                                                                alt="post"></div>
 
                                                     <!-- Category -->
                                                     <a href="#" class="category education" tabindex="-1">music</a>
@@ -127,7 +143,8 @@
                                                     <div class="content">
 
                                                         <!-- Title -->
-                                                        <h4 class="title"><a href="post-details.html" tabindex="-1">Upcoming Event 10 Dec at Bonobisree Area.</a></h4>
+                                                        <h4 class="title"><a href="post-details.html" tabindex="-1">Upcoming
+                                                                Event 10 Dec at Bonobisree Area.</a></h4>
 
                                                         <!-- Meta -->
                                                         <div class="meta fix">
@@ -139,14 +156,18 @@
                                                 </div>
                                             </div><!-- Overlay Post End -->
 
-                                        </div><div class="col-md-6 col-12 slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1" style="width: 379px;">
+                                        </div>
+                                        <div class="col-md-6 col-12 slick-slide slick-cloned" data-slick-index="-1"
+                                             aria-hidden="true" tabindex="-1" style="width: 379px;">
 
                                             <!-- Overlay Post Start -->
                                             <div class="post post-overlay hero-post">
                                                 <div class="post-wrap">
 
                                                     <!-- Image -->
-                                                    <div class="image"><img src="img/post/post-135.jpg" alt="post"></div>
+                                                    <div class="image"><img
+                                                                src="{{asset('assets/Frontend/img/post/post-135.jpg')}}"
+                                                                alt="post"></div>
 
                                                     <!-- Category -->
                                                     <a href="#" class="category fashion" tabindex="-1">fashion</a>
@@ -155,7 +176,9 @@
                                                     <div class="content">
 
                                                         <!-- Title -->
-                                                        <h4 class="title"><a href="post-details.html" tabindex="-1">Fashion is about some thing that comes from with in you.</a></h4>
+                                                        <h4 class="title"><a href="post-details.html" tabindex="-1">Fashion
+                                                                is about some thing that comes from with in you.</a>
+                                                        </h4>
 
                                                         <!-- Meta -->
                                                         <div class="meta fix">
@@ -167,14 +190,19 @@
                                                 </div>
                                             </div><!-- Overlay Post End -->
 
-                                        </div><div class="col-md-6 col-12 slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide00" style="width: 379px;">
+                                        </div>
+                                        <div class="col-md-6 col-12 slick-slide slick-current slick-active"
+                                             data-slick-index="0" aria-hidden="false" tabindex="-1" role="option"
+                                             aria-describedby="slick-slide00" style="width: 379px;">
 
                                             <!-- Overlay Post Start -->
                                             <div class="post post-overlay hero-post">
                                                 <div class="post-wrap">
 
                                                     <!-- Image -->
-                                                    <div class="image"><img src="img/post/post-48.jpg" alt="post"></div>
+                                                    <div class="image"><img
+                                                                src="{{asset('assets/Frontend/img/post/post-48.jpg')}}"
+                                                                alt="post"></div>
 
                                                     <!-- Category -->
                                                     <a href="#" class="category gadgets" tabindex="0">gadgets</a>
@@ -183,7 +211,8 @@
                                                     <div class="content">
 
                                                         <!-- Title -->
-                                                        <h4 class="title"><a href="post-details.html" tabindex="0">Apple, time to IOS With macos.</a></h4>
+                                                        <h4 class="title"><a href="post-details.html" tabindex="0">Apple,
+                                                                time to IOS With macos.</a></h4>
 
                                                         <!-- Meta -->
                                                         <div class="meta fix">
@@ -195,14 +224,19 @@
                                                 </div>
                                             </div><!-- Overlay Post End -->
 
-                                        </div><div class="col-md-6 col-12 slick-slide slick-active" data-slick-index="1" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide01" style="width: 379px;">
+                                        </div>
+                                        <div class="col-md-6 col-12 slick-slide slick-active" data-slick-index="1"
+                                             aria-hidden="false" tabindex="-1" role="option"
+                                             aria-describedby="slick-slide01" style="width: 379px;">
 
                                             <!-- Overlay Post Start -->
                                             <div class="post post-overlay hero-post">
                                                 <div class="post-wrap">
 
                                                     <!-- Image -->
-                                                    <div class="image"><img src="img/post/post-49.jpg" alt="post"></div>
+                                                    <div class="image"><img
+                                                                src="{{asset('assets/Frontend/img/post/post-49.jpg')}}"
+                                                                alt="post"></div>
 
                                                     <!-- Category -->
                                                     <a href="#" class="category education" tabindex="0">music</a>
@@ -211,7 +245,8 @@
                                                     <div class="content">
 
                                                         <!-- Title -->
-                                                        <h4 class="title"><a href="post-details.html" tabindex="0">Upcoming Event 10 Dec at Bonobisree Area.</a></h4>
+                                                        <h4 class="title"><a href="post-details.html" tabindex="0">Upcoming
+                                                                Event 10 Dec at Bonobisree Area.</a></h4>
 
                                                         <!-- Meta -->
                                                         <div class="meta fix">
@@ -223,14 +258,19 @@
                                                 </div>
                                             </div><!-- Overlay Post End -->
 
-                                        </div><div class="col-md-6 col-12 slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide02" style="width: 379px;">
+                                        </div>
+                                        <div class="col-md-6 col-12 slick-slide" data-slick-index="2" aria-hidden="true"
+                                             tabindex="-1" role="option" aria-describedby="slick-slide02"
+                                             style="width: 379px;">
 
                                             <!-- Overlay Post Start -->
                                             <div class="post post-overlay hero-post">
                                                 <div class="post-wrap">
 
                                                     <!-- Image -->
-                                                    <div class="image"><img src="img/post/post-135.jpg" alt="post"></div>
+                                                    <div class="image"><img
+                                                                src="{{asset('assets/Frontend/img/post/post-135.jpg')}}"
+                                                                alt="post"></div>
 
                                                     <!-- Category -->
                                                     <a href="#" class="category fashion" tabindex="-1">fashion</a>
@@ -239,7 +279,9 @@
                                                     <div class="content">
 
                                                         <!-- Title -->
-                                                        <h4 class="title"><a href="post-details.html" tabindex="-1">Fashion is about some thing that comes from with in you.</a></h4>
+                                                        <h4 class="title"><a href="post-details.html" tabindex="-1">Fashion
+                                                                is about some thing that comes from with in you.</a>
+                                                        </h4>
 
                                                         <!-- Meta -->
                                                         <div class="meta fix">
@@ -251,14 +293,18 @@
                                                 </div>
                                             </div><!-- Overlay Post End -->
 
-                                        </div><div class="col-md-6 col-12 slick-slide slick-cloned" data-slick-index="3" aria-hidden="true" tabindex="-1" style="width: 379px;">
+                                        </div>
+                                        <div class="col-md-6 col-12 slick-slide slick-cloned" data-slick-index="3"
+                                             aria-hidden="true" tabindex="-1" style="width: 379px;">
 
                                             <!-- Overlay Post Start -->
                                             <div class="post post-overlay hero-post">
                                                 <div class="post-wrap">
 
                                                     <!-- Image -->
-                                                    <div class="image"><img src="img/post/post-48.jpg" alt="post"></div>
+                                                    <div class="image"><img
+                                                                src="{{asset('assets/Frontend/img/post/post-48.jpg')}}"
+                                                                alt="post"></div>
 
                                                     <!-- Category -->
                                                     <a href="#" class="category gadgets" tabindex="-1">gadgets</a>
@@ -267,7 +313,8 @@
                                                     <div class="content">
 
                                                         <!-- Title -->
-                                                        <h4 class="title"><a href="post-details.html" tabindex="-1">Apple, time to IOS With macos.</a></h4>
+                                                        <h4 class="title"><a href="post-details.html" tabindex="-1">Apple,
+                                                                time to IOS With macos.</a></h4>
 
                                                         <!-- Meta -->
                                                         <div class="meta fix">
@@ -279,14 +326,18 @@
                                                 </div>
                                             </div><!-- Overlay Post End -->
 
-                                        </div><div class="col-md-6 col-12 slick-slide slick-cloned" data-slick-index="4" aria-hidden="true" tabindex="-1" style="width: 379px;">
+                                        </div>
+                                        <div class="col-md-6 col-12 slick-slide slick-cloned" data-slick-index="4"
+                                             aria-hidden="true" tabindex="-1" style="width: 379px;">
 
                                             <!-- Overlay Post Start -->
                                             <div class="post post-overlay hero-post">
                                                 <div class="post-wrap">
 
                                                     <!-- Image -->
-                                                    <div class="image"><img src="img/post/post-49.jpg" alt="post"></div>
+                                                    <div class="image"><img
+                                                                src="{{asset('assets/Frontend/img/post/post-49.jpg')}}"
+                                                                alt="post"></div>
 
                                                     <!-- Category -->
                                                     <a href="#" class="category education" tabindex="-1">music</a>
@@ -295,7 +346,8 @@
                                                     <div class="content">
 
                                                         <!-- Title -->
-                                                        <h4 class="title"><a href="post-details.html" tabindex="-1">Upcoming Event 10 Dec at Bonobisree Area.</a></h4>
+                                                        <h4 class="title"><a href="post-details.html" tabindex="-1">Upcoming
+                                                                Event 10 Dec at Bonobisree Area.</a></h4>
 
                                                         <!-- Meta -->
                                                         <div class="meta fix">
@@ -307,13 +359,14 @@
                                                 </div>
                                             </div><!-- Overlay Post End -->
 
-                                        </div></div></div>
+                                        </div>
+                                    </div>
+                                </div>
 
 
-
-
-
-                                <button type="button" class="slick-next slick-arrow" style="display: block;"><i class="fa fa-angle-right"></i></button></div>
+                                <button type="button" class="slick-next slick-arrow" style="display: block;"><i
+                                            class="fa fa-angle-right"></i></button>
+                            </div>
 
                         </div><!-- Post Block Body End -->
 
@@ -338,7 +391,7 @@
 
                                     <div class="col-md-6 col-12 mb-20">
                                         <label for="name">Name <sup>*</sup></label>
-                                        <input type="text" id="name" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                                        <input type="text" id="name">
                                     </div>
 
                                     <div class="col-md-6 col-12 mb-20">
@@ -376,3 +429,7 @@
         </div>
     </div>
 @endsection
+
+@push('js')
+
+@endpush

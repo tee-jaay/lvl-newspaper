@@ -36,7 +36,19 @@
 
                                         <!-- Meta -->
                                         <div class="meta fix">
-                                            <a href="{{$post->category['slug']}}" class="meta-item category fashion">{{$post->category['name']}}</a>
+                                            <a href="{{$post->category['slug']}}" class="meta-item category" style="
+                                                            font-size: 12px;
+                                                            text-transform: uppercase;
+                                                            font-weight: 600;
+                                                            color: #ffffff;
+                                                            letter-spacing: 1px;
+                                                            background-color: {{$post->category['bg_color']}};
+                                                            border-radius: 5px;
+                                                            padding: 0 13px;
+                                                            height: 30px;
+                                                            line-height: 31px;
+                                                            margin-left: 0;
+                                                    ">{{$post->category['name']}}</a>
                                             <a href="#" class="meta-item author"><img src="{{asset('assets/Frontend/img/post/post-author-1.jpg')}}" alt="post author">{{$post->author['name']}}</a>
                                             <span class="meta-item date"><i class="fa fa-clock-o"></i>{{date('d F Y', strtotime($post->created_at))}}</span>
                                         </div>

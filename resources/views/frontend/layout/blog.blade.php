@@ -38,7 +38,7 @@
     @yield('content')
     {{--Content--}}
 
-    @include('frontend.inc.instagram-section')
+    {{--@include('frontend.inc.instagram-section')--}}
 
     @include('frontend.inc.footer-top-section')
 
@@ -49,6 +49,7 @@
 
 @include('frontend.partials.footer-scripts')
 
+@stack('js')
 </body>
 
 </html>

@@ -6,7 +6,7 @@
 
             <!-- Header Logo -->
             <div class="header-logo col-md-4 d-none d-md-block">
-                <a href="index.html" class="logo"><img src="{{asset('assets/Frontend/img/logo.png')}}" alt="Logo"></a>
+                <a href="{{route('blog')}}" class="logo"><img src="{{asset('assets/Frontend/img/logo.png')}}" alt="Logo"></a>
             </div>
 
             <!-- Header Banner -->
