@@ -12,7 +12,6 @@ class PostImageTableSeeder extends Seeder
     public function run()
     {
         //
-//        factory(\App\Models\PostImage::class,100)->create();
         $faker = Faker\Factory::create();
 
         for($i = 1; $i < 101; $i++) {

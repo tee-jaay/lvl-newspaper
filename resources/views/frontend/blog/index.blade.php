@@ -2,15 +2,17 @@
 
 @push('styles')
     <style>
-        body{
+        body {
             font-family: 'Raleway', sans-serif;
 
             /*font-family: 'Source Sans Pro', sans-serif;*/
             /*font-family: 'Sarabun', sans-serif;*/
         }
+
         .sidebar-subscribe::before {
             content: url({{asset('assets/Frontend/img/shape/mail-1.png')}});
         }
+
         .sidebar-subscribe::after {
             content: url({{asset('assets/Frontend/img/shape/mail-2.png')}});
 
@@ -19,82 +21,71 @@
 @endpush
 
 @section('content')
-    <!-- Blog Section Start -->
-    <div class="blog-section section mt-20">
-        <div class="container">
+    <div class="col-lg-8 col-12 mb-50">
 
-            <!-- Feature Post Row Start -->
-            <div class="row">
+    @if (isset($posts))
+        @foreach ($posts as $post)
+            <!-- Single Blog Start -->
+                <div class="single-blog mb-50">
+                    <div class="blog-wrap">
 
-                <div class="col-lg-8 col-12 mb-50">
+                        <!-- Meta -->
+                        <div class="meta fix">
+                            <a href="{{$post->category['slug']}}" class="meta-item category" style="
+                                    font-size: 12px;
+                                    text-transform: uppercase;
+                                    font-weight: 600;
+                                    color: #ffffff;
+                                    letter-spacing: 1px;
+                                    background-color: {{$post->category['bg_color']}};
+                                    border-radius: 5px;
+                                    padding: 0 13px;
+                                    height: 30px;
+                                    line-height: 31px;
+                                    margin-left: 0;
+                                    ">{{$post->category['name']}}</a>
+                            <a href="#" class="meta-item author"><img
+                                        src="{{asset('assets/Frontend/img/post/post-author-1.jpg')}}"
+                                        alt="post author">{{$post->author['name']}}</a>
+                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{date('d F Y', strtotime($post->created_at))}}</span>
+                        </div>
 
-                    @if (isset($posts))
-                        @foreach ($posts as $post)
-                            <!-- Single Blog Start -->
-                            <div class="single-blog mb-50">
-                                    <div class="blog-wrap">
+                        <!-- Title -->
+                        <h3 class="title"><a href="{{route('post.show', $post->slug)}}">{{$post->title}}</a></h3>
 
-                                        <!-- Meta -->
-                                        <div class="meta fix">
-                                            <a href="{{$post->category['slug']}}" class="meta-item category" style="
-                                                            font-size: 12px;
-                                                            text-transform: uppercase;
-                                                            font-weight: 600;
-                                                            color: #ffffff;
-                                                            letter-spacing: 1px;
-                                                            background-color: {{$post->category['bg_color']}};
-                                                            border-radius: 5px;
-                                                            padding: 0 13px;
-                                                            height: 30px;
-                                                            line-height: 31px;
-                                                            margin-left: 0;
-                                                    ">{{$post->category['name']}}</a>
-                                            <a href="#" class="meta-item author"><img src="{{asset('assets/Frontend/img/post/post-author-1.jpg')}}" alt="post author">{{$post->author['name']}}</a>
-                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{date('d F Y', strtotime($post->created_at))}}</span>
-                                        </div>
+                        <!-- Image -->
+                        <a href="{{route('post.show', $post->slug)}}" class="image"><img src="{{$post->image->main}}"
+                                                                                         alt="post"></a>
 
-                                        <!-- Title -->
-                                        <h3 class="title"><a href="{{route('post.show', $post->slug)}}">{{$post->title}}</a></h3>
+                        <!-- Content -->
+                        <div class="content">
 
-                                        <!-- Image -->
-                                        <a href="{{route('post.show', $post->slug)}}" class="image"><img src="{{$post->image->main}}" alt="post"></a>
+                            <!-- Description -->
+                            <p>{!! $post->top_text !!}</p>
 
-                                        <!-- Content -->
-                                        <div class="content">
+                            <!-- Read More -->
+                            <a href="{{route('post.show',$post->slug)}}" class="read-more">continue reading</a>
 
-                                            <!-- Description -->
-                                            <p>{!! $post->top_text !!}</p>
+                        </div>
 
-                                            <!-- Read More -->
-                                            <a href="{{route('post.show',$post->slug)}}" class="read-more">continue reading</a>
-
-                                        </div>
-
-                                    </div>
-                                </div><!-- Single Blog End -->
-                        @endforeach
-                    @else
-                        <h3>No post found!</h3>
-                    @endif
-
-                    <div class="page-pagination-2 text-center">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                        </ul>
                     </div>
+                </div><!-- Single Blog End -->
+            @endforeach
+        @else
+            <h3>No post found!</h3>
+        @endif
 
-                </div>
-
-                @include('frontend.blog.partials.sidebar')
-
-            </div><!-- Feature Post Row End -->
-
+        <div class="page-pagination-2 text-center">
+            <ul>
+                <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+            </ul>
         </div>
-    </div><!-- Blog Section End -->
+
+    </div>
 @stop
 
 

@@ -23,3 +23,14 @@ Route::get('/contact','Frontend\PageController@contact')->name('contact');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Sidebar categories
+View::composer('frontend.blog.partials.sidebar',function ($view){
+    $categories = App\Models\Category::all();
+    $view->with('categories',$categories);
+});
+// Sidebar tags
+View::composer('frontend.blog.partials.sidebar',function ($view){
+    $tags = App\Models\Tag::all();
+    $view->with('tags',$tags);
+});

@@ -34,10 +34,23 @@
 
     @include('frontend.inc.page-banner-section')
 
-    {{--Content--}}
-    @yield('content')
-    {{--Content--}}
+    <!-- Blog Section Start -->
+        <div class="blog-section section mt-20">
+            <div class="container">
 
+                <!-- Feature Post Row Start -->
+                <div class="row">
+
+                {{--Content--}}
+                @yield('content')
+                {{--Content--}}
+
+                @include('frontend.blog.partials.sidebar')
+
+                </div><!-- Feature Post Row End -->
+
+            </div>
+        </div><!-- Blog Section End -->
     {{--@include('frontend.inc.instagram-section')--}}
 
     @include('frontend.inc.footer-top-section')

@@ -20,6 +20,7 @@
                 <div class="body">
 
                     <div class="sidebar-social-follow">
+
                         <div>
                             <a href="#" class="facebook">
                                 <i class="fa fa-facebook"></i>
@@ -72,7 +73,36 @@
 
         </div>
 
-        <!-- Single Sidebar -->
+        {{--Categories--}}
+        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+
+            <!-- Sidebar Block Wrapper -->
+            <div class="sidebar-block-wrapper">
+
+                <!-- Sidebar Block Head Start -->
+                <div class="head video-head">
+
+                    <!-- Title -->
+                    <h4 class="title">All Categories</h4>
+
+                </div><!-- Sidebar Block Head End -->
+
+                <!-- Sidebar Block Body Start -->
+                <div class="body">
+
+                    <ul class="sidebar-category video-category">
+                        @foreach ($categories as $category)
+                            <li><a href="#">{{ucfirst($category->name)}} ({{$category->posts->count()}})</a></li>
+                        @endforeach
+                    </ul>
+
+                </div><!-- Sidebar Block Body End -->
+
+            </div>
+
+        </div>
+
+        <!-- Subscribe -->
         <div class="single-sidebar col-lg-12 col-md-6 col-12">
 
             <div class="sidebar-subscribe">
@@ -88,6 +118,36 @@
                         <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button">submit</button>
                     </div>
                 </form>
+            </div>
+
+        </div>
+
+
+        {{--Tags--}}
+        <div class="single-sidebar col-lg-12 col-md-6 col-12">
+
+            <!-- Sidebar Block Wrapper -->
+            <div class="sidebar-block-wrapper">
+
+                <!-- Sidebar Block Head Start -->
+                <div class="head video-head">
+
+                    <!-- Title -->
+                    <h4 class="title">All Tags</h4>
+
+                </div><!-- Sidebar Block Head End -->
+
+                <!-- Sidebar Block Body Start -->
+                <div class="body">
+
+                    <ul class="sidebar-tag">
+                        @foreach ($tags as $tag)
+                            <a href="#"><span class="badge badge-secondary">{{ucfirst($tag->name)}}</span></a>
+                        @endforeach
+                    </ul>
+
+                </div><!-- Sidebar Block Body End -->
+
             </div>
 
         </div>
