@@ -14,7 +14,7 @@
 
                                     <!-- Submenu Start -->
                                     <ul class="sub-menu">
-                                        <li><a href="index.html">Home One</a></li>
+                                        <li><a href="{{route('home')}}">Home One</a></li>
                                         <li><a href="index-2.html">Home Two</a></li>
                                         <li><a href="index-3.html">Home Three</a></li>
                                     </ul><!-- Submenu End -->
@@ -226,10 +226,8 @@
 
                                     <!-- Submenu Start -->
                                     <ul class="sub-menu">
-                                        <li><a href="blog.html">blog</a></li>
-                                        <li><a href="blog-details.html">blog details</a></li>
-                                        <li><a href="contact-us.html">contact</a></li>
-                                        <li><a href="post-details.html">post details</a></li>
+                                        <li><a href="{{route('blog')}}">blog</a></li>
+                                        <li><a href="{{route('contact')}}">contact</a></li>
                                     </ul><!-- Submenu End -->
 
                                 </li>
