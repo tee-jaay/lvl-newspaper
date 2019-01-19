@@ -1,5 +1,7 @@
 @extends('frontend.layout.blog')
 
+@section('title','Posts by Category')
+
 @push('styles')
     <style>
         body {

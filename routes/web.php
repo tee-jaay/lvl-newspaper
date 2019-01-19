@@ -12,7 +12,10 @@ Route::get('/', function () {
 });
 // Blog
 Route::get('/blog','Frontend\PostController@index')->name('blog');
+Route::get('/blog/{category}','Frontend\PostController@postsByCategory')->name('postByCategory');
+Route::get('/posts/{category}','Frontend\PostController@postsByCategory')->name('postByCategory');
 Route::resource('/post','Frontend\PostController');
+
 // Page
 Route::get('/contact','Frontend\PageController@contact')->name('contact');
 // Auth
