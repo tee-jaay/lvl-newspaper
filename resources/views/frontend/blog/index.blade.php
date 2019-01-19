@@ -3,7 +3,9 @@
 @push('styles')
     <style>
         body {
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Varela Round', sans-serif;
+
+            /*font-family: 'Raleway', sans-serif;*/
 
             /*font-family: 'Source Sans Pro', sans-serif;*/
             /*font-family: 'Sarabun', sans-serif;*/
