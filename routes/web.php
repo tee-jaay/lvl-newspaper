@@ -21,7 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Topbar location
 View::composer('frontend.inc.header-top', function($view) {
-    $position = Stevebauman\Location\Facades\Location::get(\Request::ip());
+    $ip = \Request::ip();
+    $position = Stevebauman\Location\Facades\Location::get($ip);
     $view->with('position',$position);
 });
 // Sidebar categories
