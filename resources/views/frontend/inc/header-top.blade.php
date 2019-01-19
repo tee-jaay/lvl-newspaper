@@ -9,7 +9,7 @@
                 <!-- Header Links -->
                 <ul class="header-links">
                     <li class="disabled block d-none d-md-block"><a href="#"><i class="fa fa-clock-o"></i> {{date('l, F d, Y', strtotime(now()))}}</a></li>
-                    <li class="d-none d-md-block"><a href="#"><i class="fa fa-mixcloud"></i> <span class="weather-degrees">20 <span class="unit">c</span> </span> <span class="weather-location">- Sydney</span></a></li>
+                    <li class="d-none d-md-block"><a href="#"><i class="fa fa-mixcloud"></i> <span class="weather-degrees">20 <span class="unit">c</span> </span> <span class="weather-location">- {{$position->cityName}}</span></a></li>
                     <li><a href="{{route('register')}}"><i class="fa fa-user-circle-o"></i>Sign Up</a></li>
                     <li><a href="{{route('contact')}}"><i class="fa fa-headphones"></i>Contact</a></li>
                     <li><a href="{{route('blog')}}">Blog</a></li>

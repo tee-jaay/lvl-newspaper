@@ -4,11 +4,6 @@
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
 
 Route::get('/', function () {
@@ -24,6 +19,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Topbar location
+View::composer('frontend.inc.header-top', function($view) {
+    $position = Stevebauman\Location\Facades\Location::get(\Request::ip());
+//    $position = Stevebauman\Location\Facades\Location::get('103.89.24.58');
+    $view->with('position',$position);
+});
 // Sidebar categories
 View::composer('frontend.blog.partials.sidebar',function ($view){
     $categories = App\Models\Category::all();
