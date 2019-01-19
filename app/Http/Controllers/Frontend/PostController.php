@@ -49,7 +49,11 @@ class PostController extends Controller
     public function show($slug)
     {
         $post = Post::where('slug', $slug)->first();
-        return view('frontend.blog.show', compact('post'));
+
+        $previous = Post::where('id', '<', $post->id)->orderBy('id','desc')->first();
+        $next = Post::where('id', '>', $post->id)->orderBy('id')->first();
+
+        return view('frontend.blog.show', compact('post','previous', 'next'));
     }
 
     /**

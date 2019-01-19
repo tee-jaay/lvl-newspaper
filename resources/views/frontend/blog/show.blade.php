@@ -70,10 +70,16 @@
 
         <!-- Previous & Next Post Start -->
         <div class="post-nav mb-50">
-            <a href="#" class="prev-post"><span>previous post</span>he 10 Best Beauty Looks: Week of
-                September 11, 2017.</a>
-            <a href="#" class="next-post"><span>next post</span>The top 7 collections of New York fashion
-                week.</a>
+            @if (isset($previous))
+                <a href="{{ url('post/'.$previous->slug) }}" class="prev-post"><span>previous post</span>{{$previous->title}}</a>
+            @else
+                <a href="#" class="prev-post"><span>First post</span>No previous post</a>
+            @endif
+            @if (isset($next))
+                <a href="{{ url('post/'.$next->slug) }}" class="next-post"><span>next post</span>{{$next->title}}</a>
+            @else
+                <a href="#" class="next-post"><span>Last post</span>No next post</a>
+            @endif
         </div><!-- Previous & Next Post End -->
 
         <!-- Post Author Start -->
