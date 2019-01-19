@@ -1,6 +1,6 @@
 @extends('frontend.layout.blog')
 
-@section('title','Posts by Category')
+@section('title','Posts by Tags')
 
 @push('styles')
     <style>

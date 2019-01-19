@@ -1,5 +1,7 @@
 @extends('frontend.layout.blog')
 
+@section('title', 'Blog')
+
 @push('styles')
     <style>
         body {
@@ -52,7 +54,7 @@
 
                         <!-- Meta -->
                         <div class="meta fix">
-                            <a href="/posts/{{$post->category['slug']}}" class="meta-item category" style="
+                            <a href="/posts/category/{{$post->category['slug']}}" class="meta-item category" style="
                                     font-size: 12px;
                                     text-transform: uppercase;
                                     font-weight: 600;
@@ -67,7 +69,7 @@
                                     ">{{$post->category['name']}}</a>
                             <a href="#" class="meta-item author"><img
                                         src="{{asset('assets/Frontend/img/post/post-author-1.jpg')}}"
-                                        alt="post author">{{$post->author['name']}}</a>
+                                        alt="{{$post->author['name']}}">{{$post->author['name']}}</a>
                             <span class="meta-item date"><i class="fa fa-clock-o"></i>{{date('d F Y', strtotime($post->created_at))}}</span>
                         </div>
 

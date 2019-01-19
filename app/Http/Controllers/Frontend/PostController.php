@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -97,9 +98,9 @@ class PostController extends Controller
         return view('frontend.blog.category.index', compact('posts'));
     }
     // Posts by tag
-//    public function postsByTag($slug){
-//        $tag = Tag::where('slug',$slug)->first();
-//        $posts = $tag->posts()->approved()->status()->get();
-//        return view('post.tag_posts',compact('tag','posts'));
-//    }
+    public function postsByTag($slug){
+        $tag = Tag::where('slug',$slug)->first();
+        $posts = $tag->posts()->paginate(4)->onEachSide(1);
+        return view('frontend.blog.tag.index',compact('tag','posts'));
+    }
 }

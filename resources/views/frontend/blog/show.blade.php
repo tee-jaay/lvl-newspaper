@@ -3,6 +3,17 @@
 @section('title','Post Details')
 
 @push('styles')
+    <style>
+        .single-blog .blog-wrap .tags-social .tags i.post-tags {
+            display: block !important;
+            padding: 10px 5px !important;
+            font-size: 80% !important;
+            line-height: 0 !important;
+            margin: 0 !important;
+            width: auto !important;
+            height: auto !important;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -14,7 +25,7 @@
 
                 <!-- Meta -->
                 <div class="meta fix">
-                    <a href="/posts/{{$post->category['slug']}}"
+                    <a href="/posts/category/{{$post->category['slug']}}"
                        class="meta-item category " style="
                             font-size: 12px;
                             text-transform: uppercase;
@@ -30,7 +41,7 @@
                             ">{{$post->category['name']}}</a>
                     <a href="#" class="meta-item author"><img
                                 src="{{asset('assets/Frontend/img/post/post-author-1.jpg')}}"
-                                alt="post author">{{$post->author['name']}}</a>
+                                alt="{{$post->author['name']}}">{{$post->author['name']}}</a>
                     <span class="meta-item date"><i class="fa fa-clock-o"></i>{{date('d F Y', strtotime($post->created_at))}}</span>
                     <a href="#" class="meta-item comments"><i class="fa fa-comments"></i>(38)</a>
                     <span class="meta-item view"><i class="fa fa-eye"></i>(3483)</span>
@@ -62,10 +73,11 @@
                 <div class="tags-social float-left">
 
                     <div class="tags float-left">
-                        <i class="fa fa-tags"></i>
-                        <a href="#">Lifestyle,</a>
-                        <a href="#">Woman,</a>
-                        <a href="#">Cool</a>
+                        @if (isset($post->tags))
+                            @foreach ($post->tags as $tag)
+                                <a href="/posts/tag/{{$tag->slug}}"><i class="fa fa-tags post-tags" style="background-color: {{$post->category->bg_color}}"> {{ucfirst($tag->name)}}</i></a>
+                            @endforeach
+                        @endif
                     </div>
 
                     <div class="blog-social float-right">

@@ -12,8 +12,13 @@ Route::get('/', function () {
 });
 // Blog
 Route::get('/blog','Frontend\PostController@index')->name('blog');
-Route::get('/blog/{category}','Frontend\PostController@postsByCategory')->name('postByCategory');
-Route::get('/posts/{category}','Frontend\PostController@postsByCategory')->name('postByCategory');
+
+Route::get('/blog/category/{category}','Frontend\PostController@postsByCategory')->name('postByCategory');
+Route::get('/posts/category/{category}','Frontend\PostController@postsByCategory')->name('postByCategory');
+
+Route::get('/blog/tag/{tag}','Frontend\PostController@postsByTag')->name('postByTag');
+Route::get('/posts/tag/{tag}','Frontend\PostController@postsByTag')->name('postByTag');
+
 Route::resource('/post','Frontend\PostController');
 
 // Page
