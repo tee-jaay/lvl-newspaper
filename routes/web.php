@@ -6,6 +6,8 @@
 |--------------------------------------------------------------------------
 */
 
+use Illuminate\Http\Request;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -21,7 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Topbar location
 View::composer('frontend.inc.header-top', function($view) {
-    $position = Stevebauman\Location\Facades\Location::get(\Request::ip());
+    $position = Stevebauman\Location\Facades\Location::get(Request::ip());
 //    $position = Stevebauman\Location\Facades\Location::get('103.89.24.58');
     $view->with('position',$position);
 });
