@@ -1,8 +1,12 @@
 <!-- JS
 ============================================ -->
-
 <!-- jQuery JS -->
-<script src="{{asset('assets/Frontend/js/vendor/jquery-1.12.0.min.js')}}"></script>
+@if (env('app.env'==! 'local'))
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+@else
+    <script src="{{asset('assets/Frontend/js/vendor/jquery-1.12.0.min.js')}}"></script>
+@endif
+
 <!-- Popper JS -->
 <script src="{{asset('assets/Frontend/js/popper.min.js')}}"></script>
 <!-- Bootstrap JS -->
