@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Blog\PostView;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,4 +27,5 @@ class Post extends Model
     public function comments(){
         return $this->hasMany(Comment::class);
     }
+
 }

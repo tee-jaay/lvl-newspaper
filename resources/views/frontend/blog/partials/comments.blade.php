@@ -26,7 +26,13 @@
                 <!-- /.comment -->
             @endforeach
         @else
-            <h5>Be the first commenter.</h5>
+            <div class="comment">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5>Be the first commenter.</h5>
+                    </div>
+                </div>
+            </div>
         @endif
 
     </div>

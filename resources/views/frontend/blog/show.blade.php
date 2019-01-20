@@ -43,15 +43,17 @@
                                 src="{{asset('assets/Frontend/img/post/post-author-1.jpg')}}"
                                 alt="{{$post->author['name']}}">{{$post->author['name']}}</a>
                     <span class="meta-item date"><i class="fa fa-clock-o"></i>{{date('d F Y', strtotime($post->created_at))}}</span>
-                    <a href="#comments" class="meta-item comments"><i class="fa fa-comments"></i>(38)</a>
-                    <span class="meta-item view"><i class="fa fa-eye"></i>(3483)</span>
+                    <a href="#comments" class="meta-item comments"><i class="fa fa-comments"></i>({{$post->comments->count()}})</a>
+                    <span class="meta-item view"><i class="fa fa-eye"></i>({{$post->view_count}})</span>
                 </div>
 
                 <!-- Title -->
                 <h3 class="title">{{$post->title}}</h3>
 
                 <!-- Image -->
-                <div class="image"><img src="{{$post->image->main}}" alt="post"></div>
+                <div class="image"><img src="@if (isset($post->image->main))
+                    {{$post->image->main}}
+                @endif " alt="{{$post->title}}"></div>
 
                 <!-- Content -->
                 <div class="content">
@@ -59,13 +61,17 @@
                     <!-- Description -->
                     <p>{!! $post->top_text !!}</p>
 
-                    <p><img class="float-left mr-3" src="{{$post->image->float_left}}" alt="post">
+                    <p><img class="float-left mr-3" src="@if (isset($post->image->float_left))
+                        {{$post->image->float_left}}
+                    @endif" alt="post">
                         <span class="h4 italic d-block">{{$post->italic}}</span> <br>
                         {{$post->mid_text}}</p>
                     <blockquote class="blockquote">
                         <p>{{$post->color_quote}}</p>
                     </blockquote>
-                    <p><img class="float-right ml-2" src="{{$post->image->float_right}}"
+                    <p><img class="float-right ml-2" src="@if (isset($post->image->float_right))
+                        {{$post->image->float_right}}
+                    @endif"
                             alt="post">{!! $post->bottom_text !!}</p>
 
                 </div>
@@ -75,7 +81,7 @@
                     <div class="tags float-left">
                         @if (isset($post->tags))
                             @foreach ($post->tags as $tag)
-                                <a href="/posts/tag/{{$tag->slug}}"><i class="fa fa-tags post-tags" style="background-color: {{$post->category->bg_color}}"> {{ucfirst($tag->name)}}</i></a>
+                                <a href="/posts/tag/{{$tag->slug}}"><i class="fa fa-tags post-tags" style="background-color: @if(isset($post->category->bg_color)) {{$post->category->bg_color}} @endif "> {{ucfirst($tag->name)}}</i></a>
                             @endforeach
                         @endif
                     </div>

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Blog\PostView;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class PostController extends Controller
 {
@@ -51,6 +53,12 @@ class PostController extends Controller
     public function show($slug)
     {
         $post = Post::where('slug', $slug)->first();
+
+        $postKey = 'post_' . $post->id;
+        if (!Session::has($postKey)){
+            $post->increment('view_count');
+            Session::put($postKey, 1);
+        }
 
         $previous = Post::where('id', '<', $post->id)->orderBy('id','desc')->first();
         $next = Post::where('id', '>', $post->id)->orderBy('id')->first();

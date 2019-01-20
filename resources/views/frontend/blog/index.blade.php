@@ -77,7 +77,9 @@
                         <h3 class="title"><a href="{{route('post.show', $post->slug)}}">{{$post->title}}</a></h3>
 
                         <!-- Image -->
-                        <a href="{{route('post.show', $post->slug)}}" class="image"><img src="{{$post->image->main}}"
+                        <a href="{{route('post.show', $post->slug)}}" class="image"><img src="@if (isset($post->image->main))
+                            {{$post->image->main}}
+                        @endif"
                                                                                          alt="post"></a>
 
                         <!-- Content -->
