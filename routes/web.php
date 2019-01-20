@@ -27,6 +27,10 @@ Route::get('/contact','Frontend\PageController@contact')->name('contact');
 //Subscriber
 Route::post('subscriber', 'Frontend\SubscriberController@store')->name('subscriber.store');
 
+//Comment
+Route::post('comment/{post}','Frontend\CommentController@store')->name('comment.store');
+
+
 // Auth
 Auth::routes();
 

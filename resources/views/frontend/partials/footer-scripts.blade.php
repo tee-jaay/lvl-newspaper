@@ -28,4 +28,5 @@
     <!-- Main JS -->
     <script src="{{asset('assets/Frontend/js/main.js')}}"></script>
 
+
 {!! Toastr::message() !!}

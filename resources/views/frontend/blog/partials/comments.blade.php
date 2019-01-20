@@ -50,26 +50,26 @@
     <div class="body">
 
         <div class="post-comment-form">
-            <form action="#" class="row">
-
+            <form action="{{route('comment.store', $post->id)}}" class="row" method="post">
+                @csrf
                 <div class="col-md-6 col-12 mb-20">
                     <label for="name">Name <sup>*</sup></label>
-                    <input type="text" id="name">
+                    <input type="text" id="name" name="name">
                 </div>
 
                 <div class="col-md-6 col-12 mb-20">
                     <label for="email">Email <sup>*</sup></label>
-                    <input type="text" id="email">
+                    <input type="text" id="email" name="email">
                 </div>
 
                 <div class="col-12 mb-20">
                     <label for="website">Website <sup>*</sup></label>
-                    <input type="text" id="website">
+                    <input type="text" id="website" name="website">
                 </div>
 
                 <div class="col-12 mb-20">
                     <label for="message">Message <sup>*</sup></label>
-                    <textarea id="message"></textarea>
+                    <textarea id="message" name="comment"></textarea>
                 </div>
 
                 <div class="col-12">
