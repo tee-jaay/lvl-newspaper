@@ -23,6 +23,10 @@ Route::resource('/post','Frontend\PostController');
 
 // Page
 Route::get('/contact','Frontend\PageController@contact')->name('contact');
+
+//Subscriber
+Route::post('subscriber', 'Frontend\SubscriberController@store')->name('subscriber.store');
+
 // Auth
 Auth::routes();
 

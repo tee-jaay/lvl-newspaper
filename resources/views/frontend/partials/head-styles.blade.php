@@ -10,3 +10,7 @@
 <link rel="stylesheet" href="{{asset('assets/Frontend/css/rypp.css')}}">
 <!-- Style CSS -->
 <link rel="stylesheet" href="{{asset('assets/Frontend/css/style.css')}}">
+{{--Toastr--}}
+<link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+{{--Google Font--}}
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">

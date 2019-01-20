@@ -15,3 +15,6 @@
 <script src="{{asset('assets/Frontend/js/ajax-mail.js')}}"></script>
 <!-- Main JS -->
 <script src="{{asset('assets/Frontend/js/main.js')}}"></script>
+{{--Toastr js--}}
+<script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}

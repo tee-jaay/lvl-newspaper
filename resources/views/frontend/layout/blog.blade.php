@@ -14,8 +14,6 @@
 
     @include('frontend.partials.head-styles')
 
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-
     @stack('styles')
 
     @include('frontend.partials.head-scripts')
