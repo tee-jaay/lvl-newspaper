@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="col-md-2">
                             <a href="/profile/{{str_slug($comment->user->name)}}">
-                                <img src="{{$comment->user->image}}" alt="{{$comment->user->name}}">
+                                <img src="{{$comment->user->profile->image}}" alt="{{$comment->user->name}}">
                             </a>
 
                         </div>
