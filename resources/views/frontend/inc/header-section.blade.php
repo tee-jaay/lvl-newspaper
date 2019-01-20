@@ -11,7 +11,7 @@
 
             <!-- Header Banner -->
             <div class="header-banner col-md-8 col-12">
-                <div class="banner"><a href="#"><img src="{{asset('assets/Frontend/img/banner/header-banner-1.png')}}" alt="Header Banner"></a></div>
+                <div class="banner"><a href="#"><img src="https://lorempixel.com/abstract/734/90/" alt="Header Banner"></a></div>
             </div>
 
         </div>

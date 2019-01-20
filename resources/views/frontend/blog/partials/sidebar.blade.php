@@ -61,7 +61,7 @@
         <div class="single-sidebar col-lg-12 col-md-6 col-12">
 
             <!-- Sidebar Banner -->
-            <a href="#" class="sidebar-banner"><img src="http://lorempixel.com/370/451" alt="Sidebar Banner"></a>
+            <a href="#" class="sidebar-banner"><img src="http://lorempixel.com/food/370/451" alt="Sidebar Banner"></a>
 
         </div>
 
@@ -69,7 +69,7 @@
         <div class="single-sidebar col-lg-12 col-md-6 col-12">
 
             <!-- Sidebar Banner -->
-            <a href="#" class="sidebar-banner"><img src="http://lorempixel.com/370/272/" alt="Sidebar Banner"></a>
+            <a href="#" class="sidebar-banner"><img src="http://lorempixel.com/technics/370/272/" alt="Sidebar Banner"></a>
 
         </div>
 
