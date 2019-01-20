@@ -1,7 +1,7 @@
 <!-- JS
 ============================================ -->
 <!-- jQuery JS -->
-@if (env('app.env'==! 'local'))
+@if (env('app.env') == 'production')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 @else
     <script src="{{asset('assets/Frontend/js/vendor/jquery-1.12.0.min.js')}}"></script>
