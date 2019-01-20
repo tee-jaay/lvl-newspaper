@@ -43,7 +43,7 @@
                                 src="{{asset('assets/Frontend/img/post/post-author-1.jpg')}}"
                                 alt="{{$post->author['name']}}">{{$post->author['name']}}</a>
                     <span class="meta-item date"><i class="fa fa-clock-o"></i>{{date('d F Y', strtotime($post->created_at))}}</span>
-                    <a href="#" class="meta-item comments"><i class="fa fa-comments"></i>(38)</a>
+                    <a href="#comments" class="meta-item comments"><i class="fa fa-comments"></i>(38)</a>
                     <span class="meta-item view"><i class="fa fa-eye"></i>(3483)</span>
                 </div>
 
@@ -142,21 +142,12 @@
 
         </div><!-- Post Block Wrapper End -->
 
-        <!-- Post Block Wrapper Start -->
-        <div class="post-block-wrapper">
+        <!-- Comments Wrapper Start -->
 
-            <!-- Post Block Head Start -->
-            <div class="head">
-
-                <!-- Title -->
-                <h4 class="title">Leave a Comment</h4>
-
-            </div><!-- Post Block Head End -->
-
-            <!-- Post Block Body Start -->
             @include('frontend.blog.partials.comments')
 
-        </div><!-- Post Block Wrapper End -->
+
+    <!-- Comments Wrapper End -->
 
     </div>
 @endsection

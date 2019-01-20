@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\UserProfile;
 use Illuminate\Notifications\Notifiable;
@@ -38,4 +39,10 @@ class User extends Authenticatable
     public function profile(){
         return $this->hasOne(UserProfile::class);
     }
+    // Comments
+    public function comments(){
+//        return $this->hasMany('App\Models\Comment');
+        return $this->hasMany(Comment::class);
+    }
+
 }
