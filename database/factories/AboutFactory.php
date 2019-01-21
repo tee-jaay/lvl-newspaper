@@ -14,5 +14,9 @@ $factory->define(App\Models\About::class, function (Faker $faker) {
         'email'=>$faker->email,
         'phone_one'=>$faker->phoneNumber,
         'phone_two'=>$faker->tollFreePhoneNumber,
+        'facebook'=>'https://www.facebook.com/',
+        'twitter'=>'https://twitter.com/',
+        'dribbble'=>'https://www.dribbble.com/',
+        'google_plus'=>'https://www.google.com/',
     ];
 });

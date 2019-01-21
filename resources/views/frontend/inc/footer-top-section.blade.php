@@ -22,10 +22,10 @@
 
                     <!-- Footer Social -->
                     <div class="footer-social">
-                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="dribbble"><i class="fa fa-dribbble"></i></a>
-                        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                        <a href="{{$about->facebook}}" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="{{$about->twitter}}" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="{{$about->dribbble}}" class="dribbble"><i class="fa fa-dribbble"></i></a>
+                        <a href="{{$about->google_plus}}" class="google-plus"><i class="fa fa-google-plus"></i></a>
                     </div>
 
                 </div>
