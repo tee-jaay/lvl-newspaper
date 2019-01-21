@@ -50,33 +50,29 @@
     <div class="body">
 
         <div class="post-comment-form">
-            <form action="{{route('comment.store', $post->id)}}" class="row" method="post">
-                @csrf
-                <div class="col-md-6 col-12 mb-20">
-                    <label for="name">Name <sup>*</sup></label>
-                    <input type="text" id="name" name="name">
-                </div>
+            @guest()
+                <p>Please, <a href="{{route('login')}}" class="text-info">Login</a> to comment.</p>
+            @else
+                <form action="{{route('comment.store', $post->id)}}" class="row" method="post">
+                    @csrf
 
-                <div class="col-md-6 col-12 mb-20">
-                    <label for="email">Email <sup>*</sup></label>
-                    <input type="text" id="email" name="email">
-                </div>
+                    {{--<div class="col-12 mb-20">--}}
+                        {{--<label for="website">Website <sup>*</sup></label>--}}
+                        {{--<input type="text" id="website" name="website">--}}
+                    {{--</div>--}}
+                    <div class="col-12 mb-20">
+                        <h5>Logged in as <strong>{{Auth::user()->name}}</strong></h5>
+                    </div>
+                    <div class="col-12 mb-20">
+                        <label for="message">Message <sup>*</sup></label>
+                        <textarea id="message" name="comment"></textarea>
+                    </div>
 
-                <div class="col-12 mb-20">
-                    <label for="website">Website <sup>*</sup></label>
-                    <input type="text" id="website" name="website">
-                </div>
-
-                <div class="col-12 mb-20">
-                    <label for="message">Message <sup>*</sup></label>
-                    <textarea id="message" name="comment"></textarea>
-                </div>
-
-                <div class="col-12">
-                    <input type="submit" value="Submit Comment">
-                </div>
-
-            </form>
+                    <div class="col-12">
+                        <input type="submit" value="Submit Comment">
+                    </div>
+                </form>
+             @endguest
         </div>
 
     </div>

@@ -13,7 +13,20 @@
                     @else
                         City not found
                     @endif </span></a></li>
-                    <li><a href="{{route('register')}}"><i class="fa fa-user-circle-o"></i>Sign Up</a></li>
+                    @guest()
+                        <li><a href="{{route('login')}}"><i class="fa fa-sign-in"></i>Sign In</a></li>
+                        <li><a href="{{route('register')}}"><i class="fa fa-user-circle-o"></i>Sign Up</a></li>
+                    @else
+                        <li>
+                            <a href="{{route('logout')}}" onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();" ><i class="fa fa-sign-out"></i>
+                                {{ __('Sign Out') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                    @endguest
                     <li><a href="{{route('contact')}}"><i class="fa fa-headphones"></i>Contact</a></li>
                     <li><a href="{{route('blog')}}">Blog</a></li>
                 </ul>
