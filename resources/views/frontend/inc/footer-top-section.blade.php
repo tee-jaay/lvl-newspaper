@@ -10,13 +10,14 @@
                 <h4 class="widget-title">About Us</h4>
 
                 <div class="content fix">
-                    <p>Lorem ipsum dolor sit amet, consectet adipiscing Se velit ex, dictum at nunc  placerat consequatS quam. ornaremi condiment PhasellusI  cursii placerat quam et, mattis nibh Suspendislacinias.</p>
+                    <p>{{str_limit($about->description,200)}}</p>
 
                     <!-- Footer Contact -->
                     <ol class="footer-contact">
-                        <li><i class="fa fa-home"></i>House No 08, Din Bari, Dhaka, Bangladesh</li>
-                        <li><i class="fa fa-envelope-open"></i>Username@gmail.com</li>
-                        <li><i class="fa fa-headphones"></i>(+660 256 24857) , (+660 256 24857)</li>
+                        <li><i class="fa fa-home"></i>House No {{$about->house}}, {{$about->street}}, {{$about->district}}, {{$about->country}}</li>
+                        <li><i class="fa fa-envelope-open"></i>{{$about->email}}</li>
+                        <li><i class="fa fa-phone"></i>{{$about->phone_one}}</li>
+                        <li><i class="fa fa-mobile"></i>{{$about->phone_two}}</li>
                     </ol>
 
                     <!-- Footer Social -->

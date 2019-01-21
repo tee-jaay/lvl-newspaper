@@ -265,7 +265,7 @@ $('.three-column-post-carousel').slick({
 });
 
 /*-- Two Column Post Carousel --*/
-$('.two-column-post-carousel').not('.slick-initialized').slick({
+$('.two-column-post-carousel').slick({
     arrows: true,
     autoplay: true,
     autoplaySpeed: 5000,

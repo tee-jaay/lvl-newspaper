@@ -56,3 +56,8 @@ View::composer('frontend.blog.partials.sidebar',function ($view){
     $tags = App\Models\Tag::all();
     $view->with('tags',$tags);
 });
+// About Us
+View::composer('frontend.inc.footer-top-section', function($view){
+    $about = App\Models\About::all()->first();
+    $view->with('about', $about);
+});
