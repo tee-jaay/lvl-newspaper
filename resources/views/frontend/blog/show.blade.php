@@ -13,6 +13,9 @@
             width: auto !important;
             height: auto !important;
         }
+        .linkedin{
+            background-color: #0077B5;
+        }
     </style>
 @endpush
 
@@ -87,10 +90,10 @@
                     </div>
 
                     <div class="blog-social float-right">
-                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="dribbble"><i class="fa fa-dribbble"></i></a>
-                        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{route('post.show',$post->slug)}}" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="https://twitter.com/home?status={{route('post.show',$post->slug)}}" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="https://plus.google.com/share?url={{route('post.show',$post->slug)}}" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{route('post.show',$post->slug)}}&title={{$post->title}}&summary={{$post->top_text}}&source=" class="linkedin"><i class="fa fa-linkedin"></i></a>
                     </div>
 
                 </div>
