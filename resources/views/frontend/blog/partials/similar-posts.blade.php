@@ -252,3 +252,42 @@
     </div>
 
 </div><!-- Post Block Body End -->
+<div class="body">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="similar-posts">
+                    <div class="single-post" style="background-image: url('https://lorempixel.com/352/279/')">
+
+                            <a href="#" class="category food">foodternet</a>
+                            <h4 class="title">
+                                <a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing.</a>
+                            </h4>
+                            <div class="time">
+                                <span class="meta-item date"><i class="fa fa-clock-o"></i> 10 March 2017</span>
+                            </div>
+
+                    </div>
+                    <!-- /.single-post -->
+                </div>
+                <!-- /.similar-posts -->
+            </div>
+            <div class="col-md-6">
+                <div class="similar-posts">
+                    <div class="single-post" style="background-image: url('https://lorempixel.com/352/279/')">
+                            <a href="#" class="category food">entertainment</a>
+                            <h4 class="title">Lorem ipsum dolor sit amet consectetur.</h4>
+                            <div class="time">
+                                <span class="meta-item date"><i class="fa fa-clock-o"></i> 10 March 2017</span>
+                            </div>
+                    </div>
+                    <!-- /.single-post -->
+                </div>
+                <!-- /.similar-posts -->
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+</div>
+<!-- /.body -->

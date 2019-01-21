@@ -16,6 +16,34 @@
         .linkedin{
             background-color: #0077B5;
         }
+
+        .single-post{
+            display: block;
+            min-height: 279px;
+        }
+        .similar-posts .category{
+            /*position: absolute;*/
+            left: 0;
+            top: 0;
+            /*z-index: 5;*/
+            font-size: 11px;
+            font-family: "Open Sans", sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            color: #ffffff;
+            line-height: 24px;
+            padding: 0 9px;
+            text-transform: uppercase;
+            background-color: #00c8fa;
+        }
+        .single-post .title{
+            width: 95%;
+            padding-left: 15px;
+            padding-top: 160px;
+        }
+        .single-post .time {
+            margin-left: 16px;
+        }
     </style>
 @endpush
 
