@@ -45,6 +45,11 @@ View::composer('frontend.inc.header-top', function($view) {
     $position = Stevebauman\Location\Facades\Location::get($ip);
     $view->with('position',$position);
 });
+// Topbar social links
+View::composer('frontend.inc.header-top', function($view) {
+    $socials = App\Models\SocialLink::all();
+    $view->with('socials', $socials);
+});
 
 // Sidebar categories
 View::composer('frontend.blog.partials.sidebar',function ($view){

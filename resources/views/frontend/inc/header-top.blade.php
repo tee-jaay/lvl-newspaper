@@ -38,12 +38,11 @@
 
                 <!-- Header Social -->
                 <div class="header-social">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                    <a href="#"><i class="fa fa-youtube-play"></i></a>
-                    <a href="#"><i class="fa fa-vimeo"></i></a>
+                    @if (isset($socials))
+                        @foreach ($socials as $social)
+                            <a href="{{$social->link}}"><i class="fa {{$social->icon}}"></i></a>
+                        @endforeach
+                    @endif
                 </div>
 
             </div><!-- Header Top Social End -->
