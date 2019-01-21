@@ -15,10 +15,10 @@ class AddSocialLinksToAbout extends Migration
     {
         Schema::table('abouts', function (Blueprint $table) {
             //
-            $table->string('facebook');
-            $table->string('twitter');
-            $table->string('dribbble');
-            $table->string('google_plus');
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('dribbble')->nullable();
+            $table->string('google_plus')->nullable();
         });
     }
 
