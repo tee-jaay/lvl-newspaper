@@ -36,76 +36,34 @@
             <div class="footer-widget col-xl-3 col-md-6 col-12 mb-60">
 
                 <!-- Title -->
-                <h4 class="widget-title">popular News</h4>
+                <h4 class="widget-title">popular Posts</h4>
 
-                <!-- Footer Widget Post Start -->
-                <div class="footer-widget-post">
-                    <div class="post-wrap">
+                @if (isset($popular_posts))
+                    @foreach ($popular_posts as $post)
+                        <!-- Footer Widget Post Start -->
+                            <div class="footer-widget-post">
+                                <div class="post-wrap">
 
-                        <!-- Image -->
-                        <a href="post-details.html" class="image"><img src="{{asset('assets/Frontend/img/post/post-33.jpg')}}" alt="Post"></a>
+                                    <!-- Image -->
+                                    <a href="{{route('post.show', $post->slug)}}" class="image"><img src="{{$post->image->main}}" alt="{{str_limit($post->title, 50, '')}}"></a>
 
-                        <!-- Content -->
-                        <div class="content">
+                                    <!-- Content -->
+                                    <div class="content">
 
-                            <!-- Title -->
-                            <h5 class="title"><a href="post-details.html">Hynpodia helps male travelers find healths.</a></h5>
+                                        <!-- Title -->
+                                        <h5 class="title"><a href="{{route('post.show', $post->slug)}}">{{str_limit($post->title, 50, '')}}</a></h5>
 
-                            <!-- Meta -->
-                            <div class="meta fix">
-                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2017</span>
-                            </div>
+                                        <!-- Meta -->
+                                        <div class="meta fix">
+                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{date('d F Y', strtotime($post->created_at))}}</span>
+                                        </div>
 
-                        </div>
+                                    </div>
 
-                    </div>
-                </div><!-- Footer Widget Post ENd -->
-
-                <!-- Footer Widget Post Start -->
-                <div class="footer-widget-post">
-                    <div class="post-wrap">
-
-                        <!-- Image -->
-                        <a href="post-details.html" class="image"><img src="{{asset('assets/Frontend/img/post/post-34.jpg')}}" alt="Post"></a>
-
-                        <!-- Content -->
-                        <div class="content">
-
-                            <!-- Title -->
-                            <h5 class="title"><a href="post-details.html">How do you solve the IOS page problem.</a></h5>
-
-                            <!-- Meta -->
-                            <div class="meta fix">
-                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2017</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div><!-- Footer Widget Post End -->
-
-                <!-- Footer Widget Post Start -->
-                <div class="footer-widget-post">
-                    <div class="post-wrap">
-
-                        <!-- Image -->
-                        <a href="post-details.html" class="image"><img src="{{asset('assets/Frontend/img/post/post-35.jpg')}}" alt="Post"></a>
-
-                        <!-- Content -->
-                        <div class="content">
-
-                            <!-- Title -->
-                            <h5 class="title"><a href="post-details.html">Home is not a place . . . . . .  . it’s a feeling.</a></h5>
-
-                            <!-- Meta -->
-                            <div class="meta fix">
-                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2017</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div><!-- Footer Widget Post End -->
+                                </div>
+                            </div><!-- Footer Widget Post ENd -->
+                    @endforeach
+                @endif
 
             </div><!-- Footer Widget End -->
 

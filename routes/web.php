@@ -61,8 +61,14 @@ View::composer('frontend.blog.partials.sidebar',function ($view){
     $tags = App\Models\Tag::all();
     $view->with('tags',$tags);
 });
+// Footer
 // About Us
 View::composer('frontend.inc.footer-top-section', function($view){
     $about = App\Models\About::all()->first();
     $view->with('about', $about);
+});
+// Popular posts
+View::composer('frontend.inc.footer-top-section', function($view){
+    $popular_posts = App\Models\Post::orderBy('view_count','DESC')->take(3)->get();
+    $view->with('popular_posts',$popular_posts);
 });
