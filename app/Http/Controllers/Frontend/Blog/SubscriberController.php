@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Frontend\Blog;
 
-use App\Models\Subscriber;
+use App\Models\Blog\Subscriber;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Blog;
 
 use App\Models\Blog\PostView;
 use App\User;

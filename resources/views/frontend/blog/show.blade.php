@@ -49,6 +49,14 @@
             float: left !important;
             position: relative !important;
         }
+
+        .single-post h4.title a {
+            color: white;
+        }
+        .single-post h4.title a:hover {
+            color: #00c8fa;
+        }
+
         .single-post .category{
             position: absolute !important;
             left: 0 !important;
@@ -79,6 +87,7 @@
             z-index: 15 !important;
             bottom: 30px !important;
         }
+
     </style>
 @endpush
 
