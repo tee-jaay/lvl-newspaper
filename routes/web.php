@@ -34,7 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 });
 // Post Search
-Route::get('search', 'Frontend\Blog\PostSearchController@search')->name('post.search');
+Route::get('blog/search', 'Frontend\Blog\PostSearchController@search')->name('post.search');
 
 // Auth
 Auth::routes();

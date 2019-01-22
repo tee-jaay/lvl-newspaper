@@ -97,7 +97,11 @@
                 </div><!-- Single Blog End -->
             @endforeach
         @else
-            <h3>No post found!</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>No post found!</h3>
+                </div>
+            </div>
         @endif
         <div>
             {!! $posts->links("pagination::default") !!}
