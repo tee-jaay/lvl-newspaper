@@ -246,8 +246,8 @@
 
                         <!-- Header Search Form -->
                         <div class="header-search-form">
-                            <form action="#">
-                                <input type="text" placeholder="Search Here">
+                            <form action="{{route('post.search')}}" method="get">
+                                <input type="text" name="query" placeholder="Search Here">
                             </form>
                         </div>
 

@@ -33,6 +33,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('comment/{post}', 'Frontend\Blog\CommentController@store')->name('comment.store');
 
 });
+// Post Search
+Route::get('search', 'Frontend\Blog\PostSearchController@search')->name('post.search');
+
 // Auth
 Auth::routes();
 
