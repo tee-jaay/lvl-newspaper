@@ -27,6 +27,19 @@
     <script src="{{asset('assets/Frontend/js/ajax-mail.js')}}"></script>
     <!-- Main JS -->
     <script src="{{asset('assets/Frontend/js/main.js')}}"></script>
-
+{{--Owl--}}
+<script src="{{asset('assets/Frontend/js/owl/owl.carousel.js')}}"></script>
+<script>
+    $(document).ready(function(){
+        $(".owl-carousel-similar-posts").owlCarousel({
+            items:2,
+            loop:true,
+            autoplay:true,
+            autoplayTimeout:10000,
+            autoplayHoverPause:true,
+            smartSpeed:450
+        });
+    });
+</script>
 
 {!! Toastr::message() !!}

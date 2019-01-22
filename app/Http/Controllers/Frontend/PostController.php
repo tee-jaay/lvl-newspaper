@@ -54,16 +54,22 @@ class PostController extends Controller
     {
         $post = Post::where('slug', $slug)->first();
 
+        // post view count
         $postKey = 'post_' . $post->id;
         if (!Session::has($postKey)){
             $post->increment('view_count');
             Session::put($postKey, 1);
         }
 
+        // previous-next post links
         $previous = Post::where('id', '<', $post->id)->orderBy('id','desc')->first();
         $next = Post::where('id', '>', $post->id)->orderBy('id')->first();
 
-        return view('frontend.blog.show', compact('post','previous', 'next'));
+        // random posts
+        $randomPosts = Post::take(8)->inRandomOrder()->get();
+
+
+        return view('frontend.blog.show', compact('post','previous', 'next', 'randomPosts'));
     }
 
     /**

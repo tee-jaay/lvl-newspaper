@@ -23,3 +23,6 @@
 <link rel="stylesheet" href="{{asset('assets/Frontend/css/toastr.css')}}">
 {{--Google Font--}}
 <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+{{--Owl--}}
+<link rel="stylesheet" href="{{asset('assets/Frontend/css/owl/owl.carousel.css')}}">
+{{--<link rel="stylesheet" href="{{asset('assets/Frontend/css/owl/owl.theme.default.css')}}">--}}
