@@ -45,56 +45,37 @@
 
 @section('content')
     <div class="col-lg-8 col-12 mb-50">
-
     @if (isset($posts))
         @foreach ($posts as $post)
-            <!-- Single Blog Start -->
-                <div class="single-blog mb-50">
-                    <div class="blog-wrap">
-
-                        <!-- Meta -->
-                        <div class="meta fix">
-                            <a href="/posts/category/{{$post->category['slug']}}" class="meta-item category" style="
-                                    font-size: 12px;
-                                    text-transform: uppercase;
-                                    font-weight: 600;
-                                    color: #ffffff;
-                                    letter-spacing: 1px;
-                                    background-color: {{$post->category['bg_color']}};
-                                    border-radius: 5px;
-                                    padding: 0 13px;
-                                    height: 30px;
-                                    line-height: 31px;
-                                    margin-left: 0;
-                                    ">{{$post->category['name']}}</a>
-                            <a href="#" class="meta-item author"><img
-                                        src="{{asset('assets/Frontend/img/post/post-author-1.jpg')}}"
-                                        alt="{{$post->author['name']}}">{{$post->author['name']}}</a>
-                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{date('d F Y', strtotime($post->created_at))}}</span>
-                        </div>
-
-                        <!-- Title -->
-                        <h3 class="title"><a href="{{route('post.show', $post->slug)}}">{{$post->title}}</a></h3>
+                <!-- Post Start -->
+                <div class="post fashion-post post-default-list post-separator-border">
+                    <div class="post-wrap">
 
                         <!-- Image -->
-                        <a href="{{route('post.show', $post->slug)}}" class="image"><img src="@if (isset($post->image->main))
-                            {{$post->image->main}}
-                        @endif"
-                                                                                         alt="post"></a>
+                        <a class="image" href="{{route('post.show', $post->slug)}}"><img src="{{$post->image['float_right']}}" alt="{{str_limit($post->title, 30)}}"></a>
 
                         <!-- Content -->
                         <div class="content">
 
+                            <!-- Title -->
+                            <h4 class="title"><a href="{{route('post.show', $post->slug)}}">{{$post->title}}</a></h4>
+
+                            <!-- Meta -->
+                            <div class="meta fix">
+                                <a href="#" class="meta-item author"><i class="fa fa-user"></i>{{$post->author['name']}}</a>
+                                <span class="meta-item date"><i class="fa fa-clock-o"></i>{{date('d F Y', strtotime($post->created_at))}}</span>
+                            </div>
+
                             <!-- Description -->
-                            <p>{!! $post->top_text !!}</p>
+                            <p>{{str_limit($post->top_text, 320)}}</p>
 
                             <!-- Read More -->
-                            <a href="{{route('post.show',$post->slug)}}" class="read-more">continue reading</a>
+                            <a href="{{route('post.show', $post->slug)}}" class="read-more">continue reading</a>
 
                         </div>
 
                     </div>
-                </div><!-- Single Blog End -->
+                </div><!-- Post End -->
             @endforeach
         @else
             <div class="row">
@@ -103,20 +84,79 @@
                 </div>
             </div>
         @endif
+
         <div>
             {!! $posts->links("pagination::default") !!}
         </div>
-        {{--<div class="page-pagination-2 text-center">--}}
-            {{--<ul>--}}
-                {{--<li><a href="#"><i class="fa fa-angle-left"></i></a></li>--}}
-                {{--<li class="active"><a href="#">1</a></li>--}}
-                {{--<li><a href="#">2</a></li>--}}
-                {{--<li><a href="#">3</a></li>--}}
-                {{--<li><a href="#"><i class="fa fa-angle-right"></i></a></li>--}}
-            {{--</ul>--}}
-        {{--</div>--}}
 
     </div>
+
+    {{-------------------------------}}
+    {{--<div class="col-lg-8 col-12 mb-50">--}}
+
+        {{--@if (isset($posts))--}}
+        {{--@foreach ($posts as $post)--}}
+        {{--<!-- Single Blog Start -->--}}
+        {{--<div class="single-blog mb-50">--}}
+        {{--<div class="blog-wrap">--}}
+
+        {{--<!-- Meta -->--}}
+        {{--<div class="meta fix">--}}
+        {{--<a href="/posts/category/{{$post->category['slug']}}" class="meta-item category" style="--}}
+        {{--font-size: 12px;--}}
+        {{--text-transform: uppercase;--}}
+        {{--font-weight: 600;--}}
+        {{--color: #ffffff;--}}
+        {{--letter-spacing: 1px;--}}
+        {{--background-color: {{$post->category['bg_color']}};--}}
+        {{--border-radius: 5px;--}}
+        {{--padding: 0 13px;--}}
+        {{--height: 30px;--}}
+        {{--line-height: 31px;--}}
+        {{--margin-left: 0;--}}
+        {{--">{{$post->category['name']}}</a>--}}
+        {{--<a href="#" class="meta-item author"><img--}}
+        {{--src="{{asset('assets/Frontend/img/post/post-author-1.jpg')}}"--}}
+        {{--alt="{{$post->author['name']}}">{{$post->author['name']}}</a>--}}
+        {{--<span class="meta-item date"><i class="fa fa-clock-o"></i>{{date('d F Y', strtotime($post->created_at))}}</span>--}}
+        {{--</div>--}}
+
+        {{--<!-- Title -->--}}
+        {{--<h3 class="title"><a href="{{route('post.show', $post->slug)}}">{{$post->title}}</a></h3>--}}
+
+        {{--<!-- Image -->--}}
+        {{--<a href="{{route('post.show', $post->slug)}}" class="image"><img src="@if (isset($post->image->main))--}}
+        {{--{{$post->image->main}}--}}
+        {{--@endif"--}}
+        {{--alt="post"></a>--}}
+
+        {{--<!-- Content -->--}}
+        {{--<div class="content">--}}
+
+        {{--<!-- Description -->--}}
+        {{--<p>{!! $post->top_text !!}</p>--}}
+
+        {{--<!-- Read More -->--}}
+        {{--<a href="{{route('post.show',$post->slug)}}" class="read-more">continue reading</a>--}}
+
+        {{--</div>--}}
+
+        {{--</div>--}}
+        {{--</div><!-- Single Blog End -->--}}
+        {{--@endforeach--}}
+        {{--@else--}}
+        {{--<div class="row">--}}
+        {{--<div class="col-md-12">--}}
+        {{--<h3>No post found!</h3>--}}
+        {{--</div>--}}
+        {{--</div>--}}
+        {{--@endif--}}
+        {{--<div>--}}
+            {{--{!! $posts->links("pagination::default") !!}--}}
+        {{--</div>--}}
+
+
+    {{--</div>--}}
 @stop
 
 
