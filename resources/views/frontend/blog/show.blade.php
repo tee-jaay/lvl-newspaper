@@ -14,71 +14,71 @@
             height: auto !important;
         }
         .linkedin{
-            background-color: #0077B5;
+            background-color: #0077B5 !important;
         }
 
         .owl-carousel-similar-posts{
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: hidden !important;
         }
         .owl-carousel-similar-posts .owl-item{
-            float: left;
+            float: left !important;
         }
 
         .owl-carousel-similar-posts li {
-            display: inline-block;
+            display: inline-block !important;
         }
         .owl-nav .disabled{
-            display: none;
+            display: none !important;
         }
         .owl-dots{
-            display: none;
+            display: none !important;
         }
         .owl-prev{
-            display: none;
+            display: none !important;
         }
         .owl-next{
-            display: none;
+            display: none !important;
         }
 
         .single-post{
-            display: block;
-            min-height: 279px;
-            min-width: 319px;
-            float: left;
-            position: relative;
-            margin-left: 10px;
+            display: block !important;
+            min-height: 279px !important;
+            min-width: 319px !important;
+            float: left !important;
+            position: relative !important;
+            margin-left: 10px !important;
         }
         .single-post .category{
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: 5;
-            font-size: 11px;
-            font-family: "Open Sans", sans-serif;
-            font-weight: 600;
-            letter-spacing: 0.8px;
-            color: #ffffff;
-            line-height: 24px;
-            padding: 0 9px;
-            text-transform: uppercase;
+            position: absolute !important;
+            left: 0 !important;
+            top: 0 !important;
+            z-index: 5 !important;
+            font-size: 11px !important;
+            /*font-family: "Open Sans", sans-serif !important;*/
+            font-weight: 600 !important;
+            letter-spacing: 0.8px !important;
+            color: #ffffff !important;
+            line-height: 24px !important;
+            padding: 0 9px !important;
+            text-transform: uppercase !important;
         }
         .single-post .title{
-            width: 95%;
-            padding-left: 15px;
-            padding-top: 160px;
-            position: absolute;
-            z-index: 10;
-            left: 0;
-            top: 12px;
+            width: 95% !important;
+            padding-left: 15px !important;
+            padding-top: 160px !important;
+            position: absolute !important;
+            z-index: 10 !important;
+            left: 0 !important;
+            top: 12px !important;
         }
         .single-post .time {
-            margin-left: 16px;
-            position: absolute;
-            left: 0;
-            z-index: 15;
-            bottom: 30px;
+            margin-left: 16px !important;
+            position: absolute !important;
+            left: 0 !important;
+            z-index: 15 !important;
+            bottom: 30px !important;
         }
     </style>
 @endpush
