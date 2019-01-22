@@ -48,7 +48,6 @@
             min-width: 319px !important;
             float: left !important;
             position: relative !important;
-            margin-left: 10px !important;
         }
         .single-post .category{
             position: absolute !important;

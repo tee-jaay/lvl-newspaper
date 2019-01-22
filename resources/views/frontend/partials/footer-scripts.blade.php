@@ -41,7 +41,7 @@
                 autoplay:true,
                 autoplayTimeout:10000,
                 autoplayHoverPause:true,
-                smartSpeed:450
+                smartSpeed:450,
             });
         });
     </script>
