@@ -22,7 +22,7 @@ Route::get('/posts/tag/{tag}','Frontend\Blog\PostController@postsByTag')->name('
 Route::resource('/post','Frontend\Blog\PostController');
 
 // Page
-Route::get('/contact','Frontend\PageController@contact')->name('contact');
+Route::get('/contact','Frontend\Site\PageController@contact')->name('contact');
 
 //Subscriber
 Route::post('subscriber', 'Frontend\Blog\SubscriberController@store')->name('subscriber.store');
@@ -43,7 +43,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Topbar location
 View::composer('frontend.inc.header-top', function($view) {
-    $ip = Request::ip();
+    $ip = \Request::ip();
 //    $ip = request()->ip();
     $position = Stevebauman\Location\Facades\Location::get($ip);
     $view->with('position',$position);
@@ -67,7 +67,7 @@ View::composer('frontend.blog.partials.sidebar',function ($view){
 // Footer
 // About Us
 View::composer('frontend.inc.footer-top-section', function($view){
-    $about = App\Models\About::all()->first();
+    $about = App\Models\Site\About::all()->first();
     $view->with('about', $about);
 });
 // Popular posts

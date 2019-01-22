@@ -12,6 +12,6 @@ class CommentTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(\App\Models\Comment::class, 300)->create();
+        factory(\App\Models\Blog\Comment::class, 300)->create();
     }
 }

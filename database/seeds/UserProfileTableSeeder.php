@@ -14,7 +14,7 @@ class UserProfileTableSeeder extends Seeder
         $faker = Faker\Factory::create();
 
         for($i = 1; $i < 21; $i++) {
-            \App\Models\UserProfile::create([
+            \App\Models\Site\UserProfile::create([
                 'user_id'=>$i,
                 'image'=>$faker->imageUrl(90,90),
                 'bio'=>$faker->paragraphs(3,true),

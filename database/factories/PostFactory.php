@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Models\Post::class, function (Faker $faker) {
+$factory->define(App\Models\Blog\Post::class, function (Faker $faker) {
     return [
         //
         'author_id'=>rand(1,15),

@@ -12,6 +12,6 @@ class AboutFactoryTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(\App\Models\About::class, 1)->create();
+        factory(\App\Models\Site\About::class, 1)->create();
     }
 }

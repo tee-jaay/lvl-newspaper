@@ -2,9 +2,9 @@
 
 namespace App;
 
-use App\Models\Comment;
-use App\Models\Post;
-use App\Models\UserProfile;
+use App\Models\Blog\Comment;
+use App\Models\Blog\Post;
+use App\Models\Site\UserProfile;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;

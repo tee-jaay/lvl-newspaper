@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Models\About::class, function (Faker $faker) {
+$factory->define(App\Models\Site\About::class, function (Faker $faker) {
     return [
         //
         'banner_image'=>$faker->imageUrl(770,294),

@@ -15,7 +15,7 @@ class PostImageTableSeeder extends Seeder
         $faker = Faker\Factory::create();
 
         for($i = 1; $i < 101; $i++) {
-            App\Models\PostImage::create([
+            App\Models\Blog\PostImage::create([
                 'post_id' => $i,
                 'post_header' => $faker->imageUrl(770, 294),
                 'main' => $faker->imageUrl(730, 400),
