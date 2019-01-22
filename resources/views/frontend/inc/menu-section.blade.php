@@ -22,6 +22,7 @@
                                 </li>
                                 <li><a href="category-lifestyle.html">News</a></li>
                                 <li><a href="category-sports.html">Sports</a></li>
+
                                 <li class="has-dropdown"><a href="category-lifestyle.html">Lifestyle</a>
 
                                     <!-- Mega Menu Start -->
@@ -220,6 +221,8 @@
                                     </div><!-- Mega Menu End -->
 
                                 </li>
+
+
                                 <li><a href="category-fashion.html">Fashion</a></li>
                                 <li><a href="category-politic.html">politic</a></li>
                                 <li class="active has-dropdown"><a href="#">pages</a>
