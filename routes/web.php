@@ -35,6 +35,8 @@ Route::group(['middleware' => ['auth']], function () {
 });
 // Post Search
 Route::get('blog/search', 'Frontend\Blog\PostSearchController@search')->name('post.search');
+// Contact
+Route::post('/contact','Frontend\Site\ContactController@store')->name('contact.store');
 
 // Auth
 Auth::routes();

@@ -27,17 +27,17 @@
 
                     <div class="single-contact text-center col-md-4">
                         <i class="fa fa-home"></i>
-                        <p>House No 08, Ro ad No 08 Din Bari, Dhaka, Bangladesh</p>
+                        <p>House No {{$contactInfo->house}}, {{$contactInfo->street}}, {{$contactInfo->district}}, {{$contactInfo->country}}</p>
                     </div>
 
                     <div class="single-contact text-center col-md-4">
                         <i class="fa fa-envelope-open"></i>
-                        <p>Username@gmail.com <br>Damo@gmail.com</p>
+                        <p>{{$contactInfo->email}}</p>
                     </div>
 
                     <div class="single-contact text-center col-md-4">
                         <i class="fa fa-headphones"></i>
-                        <p>(+660 256 24857) <br>(+660 256 24857)</p>
+                        <p>{{$contactInfo->phone_one}} <br>{{$contactInfo->phone_two}}</p>
                     </div>
 
                 </div>
@@ -55,12 +55,13 @@
             <!-- Post Block Body Start -->
             <div class="body">
 
-                <form id="contact-form" action="mail.php" method="post">
+                <form id="contact-form" action="{{route('contact.store')}}" method="post">
+                    @csrf
                     <div class="contact-form row">
 
                         <div class="col-md-6 col-12 mb-20">
                             <label for="name">Name <sup>*</sup></label>
-                            <input type="text" id="name" name="name" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+                            <input type="text" id="name" name="name">
                         </div>
 
                         <div class="col-md-6 col-12 mb-20">
@@ -69,8 +70,13 @@
                         </div>
 
                         <div class="col-12 mb-20">
-                            <label for="website">Website <sup>*</sup></label>
+                            <label for="website">Website</label>
                             <input type="text" id="website" name="website">
+                        </div>
+
+                        <div class="col-12 mb-20">
+                            <label for="website">Subject</label>
+                            <input type="text" id="subject" name="subject">
                         </div>
 
                         <div class="col-12 mb-20">

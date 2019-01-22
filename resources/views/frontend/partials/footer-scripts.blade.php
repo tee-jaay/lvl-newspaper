@@ -29,7 +29,7 @@
     <!-- rypp JS -->
     <script src="{{asset('assets/Frontend/js/rypp.js')}}"></script>
     <!-- Ajax Mail JS -->
-    <script src="{{asset('assets/Frontend/js/ajax-mail.js')}}"></script>
+{{--    <script src="{{asset('assets/Frontend/js/ajax-mail.js')}}"></script>--}}
     <!-- Main JS -->
     <script src="{{asset('assets/Frontend/js/main.js')}}"></script>
     {{--Owl similar posts--}}
