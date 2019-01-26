@@ -103,6 +103,16 @@
         </div>
 
         <!-- Subscribe -->
+        <style>
+            .sidebar-subscribe::before {
+                content: url({{asset('assets/Frontend/img/shape/mail-1.png')}});
+            }
+
+            .sidebar-subscribe::after {
+                content: url({{asset('assets/Frontend/img/shape/mail-2.png')}});
+
+            }
+        </style>
         <div class="single-sidebar col-lg-12 col-md-6 col-12">
 
             <div class="sidebar-subscribe">
@@ -138,7 +148,11 @@
 
                 <!-- Sidebar Block Body Start -->
                 <div class="body">
-
+                    <style>
+                        .sidebar-tag a span{
+                            background-color: #00c8fa;
+                        }
+                    </style>
                     <ul class="sidebar-tag">
                         @foreach ($tags as $tag)
                             <a href="/posts/tag/{{$tag->slug}}"><span class="badge badge-secondary">{{ucfirst($tag->name)}}</span></a>

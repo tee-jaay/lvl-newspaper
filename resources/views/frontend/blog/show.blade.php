@@ -4,14 +4,7 @@
 
 @push('styles')
     <style>
-        .sidebar-subscribe::before {
-            content: url({{asset('assets/Frontend/img/shape/mail-1.png')}});
-        }
 
-        .sidebar-subscribe::after {
-            content: url({{asset('assets/Frontend/img/shape/mail-2.png')}});
-
-        }
 
         .single-blog .blog-wrap .tags-social .tags i.post-tags {
             display: block !important;

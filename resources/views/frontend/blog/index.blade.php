@@ -13,14 +13,7 @@
             /*font-family: 'Sarabun', sans-serif;*/
         }
 
-        .sidebar-subscribe::before {
-            content: url({{asset('assets/Frontend/img/shape/mail-1.png')}});
-        }
 
-        .sidebar-subscribe::after {
-            content: url({{asset('assets/Frontend/img/shape/mail-2.png')}});
-
-        }
 
         .page-pagination-2 ul li {
             display: inline-block;
