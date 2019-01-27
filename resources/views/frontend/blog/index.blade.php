@@ -13,7 +13,9 @@
             /*font-family: 'Sarabun', sans-serif;*/
         }
 
-
+        .content p{
+            font-size: 18px;
+        }
 
         .page-pagination-2 ul li {
             display: inline-block;

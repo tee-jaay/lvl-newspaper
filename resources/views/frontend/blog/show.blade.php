@@ -90,6 +90,10 @@
             bottom: 30px !important;
         }
 
+        .single-blog .content p{
+            font-size: 18px;
+        }
+
         .tags{
             min-width: 70%;
         }
