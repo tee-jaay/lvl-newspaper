@@ -90,6 +90,10 @@
             bottom: 30px !important;
         }
 
+        .tags{
+            min-width: 70%;
+        }
+
     </style>
 @endpush
 
