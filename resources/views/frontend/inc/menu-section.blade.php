@@ -33,7 +33,7 @@
                                             {{--<li><a class="active" data-toggle="tab" href="#menu-tab-one">all</a></li>--}}
                                             @if (isset($categories))
                                                 @foreach ($categories as $category)
-                                                    <li><a data-toggle="tab" href="#{{$category->id}}">{{$category->name}}</a></li>
+                                                    <li><a data-toggle="tab" href="#category-{{$category->id}}">{{$category->name}}</a></li>
                                                 @endforeach
                                             @endif
                                         </ul><!-- Menu Tab List End -->
@@ -136,7 +136,7 @@
                                                             @else
                                                                 class="tab-pane fade show"
                                                             @endif
-                                                         id="{{$category_id}}">
+                                                         id="category-{{$category_id}}">
 
                                                             <div class="row">
 
