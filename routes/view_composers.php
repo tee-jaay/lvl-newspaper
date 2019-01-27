@@ -17,7 +17,15 @@ View::composer('frontend.inc.header-top', function ($view) {
     $socials = App\Models\Blog\SocialLink::all();
     $view->with('socials', $socials);
 });
-
+// Menu
+View::composer('frontend.inc.menu-section', function ($view) {
+    $categories = App\Models\Blog\Category::all();
+    $view->with('categories', $categories);
+});
+View::composer('frontend.inc.menu-section', function ($view) {
+    $posts = App\Models\Blog\Post::all()->groupBy('category_id');
+    $view->with('posts', $posts);
+});
 // Sidebar categories
 View::composer('frontend.blog.partials.sidebar', function ($view) {
     $categories = App\Models\Blog\Category::all();
