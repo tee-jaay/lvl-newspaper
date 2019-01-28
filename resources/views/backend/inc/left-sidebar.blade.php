@@ -33,27 +33,29 @@
                 </a>
             </li>
 
-            <li>
+            <li class="{{Request::is('admin/blog*')?'active':''}}" >
                 <a href="javascript:void(0);" class="menu-toggle">
                     <i class="material-icons">widgets</i>
                     <span>Blog</span>
                 </a>
                 <ul class="ml-menu">
-                    <li>
+
+                    <li class="{{Request::is('admin/blog/category*')?'active':''}}">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <span>Categories</span>
                         </a>
                         <ul class="ml-menu">
-                            <li>
+                            <li class="{{Request::is('admin/blog/category')?'active':''}}">
                                 <a href="{{route('admin.blog-category.index')}}">All Categories</a>
                             </li>
 
-                            <li>
+                            <li class="{{Request::is('admin/blog/category/create')?'active':''}}">
                                 <a href="{{route('admin.blog-category.create')}}">New Category</a>
                             </li>
 
                         </ul>
                     </li>
+
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <span>Tags</span>
