@@ -49,7 +49,7 @@
                                         <td>{{$category->created_at}}</td>
                                         <td>
                                             <a href="{{route('admin.blog-category.show',$category->id)}}" class="btn btn-sm btn-success waves-effect"><i class="material-icons">visibility</i><span></span></a>
-                                            <a href="{{route('admin.blog-category.edit',$category->id)}}" class="btn btn-sm btn-info waves-effect"><i class="material-icons">edit</i><span></span></a>
+                                            <a href="{{route('admin.blog-category.edit',$category->id)}}" class="btn btn-sm btn-warning waves-effect"><i class="material-icons">edit</i><span></span></a>
                                             <button onclick="deleteCategory({{$category->id}});" class="btn btn-sm btn-danger waves-effect"><i class="material-icons">delete</i><span></span></button>
                                             <form id="delete-category-{{$category->id}}" action="{{route('admin.blog-category.destroy',$category->id)}}" method="post" style="display: none;">
                                                 {{csrf_field()}}

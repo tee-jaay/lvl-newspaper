@@ -37,7 +37,25 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+//        dd($request->all());
+        $this->validate($request, [
+            'name'=>'required',
+            'bg-color'=>'required',
+        ]);
+
+        $category = new Category();
+        $category->name = $request['name'];
+        $category->slug = str_slug($category->name);
+        $category->bg_color = $request['bg-color'];
+        if ($request['status']== null){
+            $category->status = 0;
+        }
+        $category->description = $request['description'];
+
+        $category->save();
+
+        return redirect()->route('admin.blog-category.index');
+
     }
 
     /**
@@ -48,7 +66,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        return view('backend.dashboard.category.show', compact('category'));
     }
 
     /**

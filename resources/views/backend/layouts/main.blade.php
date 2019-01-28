@@ -37,6 +37,8 @@
 </section>
 
 @include('backend.partials.footer-scripts')
+
+@stack('js')
 </body>
 
 </html>

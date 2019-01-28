@@ -3,7 +3,7 @@
 @section('title','New Category')
 
 @push('css')
-
+    <link rel="stylesheet" href="{{asset('assets/Backend/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css')}}">
 @endpush
 
 @section('content')
@@ -27,8 +27,8 @@
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" id="bg-color" class="form-control" name="bg-color">
-                                <label class="form-label">Background Color, example: #fff234</label>
+                                <input type="text" id="bg-color" class="form-control" name="bg-color" >
+                                <label class="form-label">Background Color</label>
                             </div>
                         </div>
 
@@ -60,5 +60,11 @@
 @endsection
 
 @push('js')
-
+    <script src="{{asset('assets/Backend/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js')}}"></script>
+    <script>
+        $(function () {
+            // Basic instantiation:
+            $('#bg-color').colorpicker();
+        });
+    </script>
 @endpush
