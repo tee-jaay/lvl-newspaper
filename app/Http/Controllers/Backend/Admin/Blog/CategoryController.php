@@ -37,7 +37,6 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
         $this->validate($request, [
             'name'=>'required',
             'bg-color'=>'required',
@@ -78,7 +77,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        return view('backend.dashboard.category.edit', compact('category'));
     }
 
     /**
@@ -90,7 +90,26 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name'=>'required',
+            'bg-color'=>'required',
+        ]);
+
+        $category = Category::findOrFail($id);
+
+        $category->name = $request['name'];
+        $category->slug = str_slug($category->name);
+        $category->bg_color = $request['bg-color'];
+        if ($request['status']== null){
+            $category->status = 0;
+        }else{
+            $category->status = 1;
+        }
+        $category->description = $request['description'];
+
+        $category->update();
+
+        return redirect()->route('admin.blog-category.index');
     }
 
     /**
