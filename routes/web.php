@@ -19,6 +19,11 @@ Route::post('/contact', 'Frontend\Site\ContactController@store')->name('contact.
 
 // Auth
 Auth::routes();
+// Admin route group
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Backend\Admin', 'middleware' => ['auth']], function () {
+    // Dashboard
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 
