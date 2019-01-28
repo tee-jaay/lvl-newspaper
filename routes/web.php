@@ -23,6 +23,8 @@ Auth::routes();
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Backend\Admin', 'middleware' => ['auth']], function () {
     // Dashboard
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+    // Blog
+    Route::resource('blog/category','Blog\CategoryController', ['names' => 'blog-category']);
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
