@@ -3,7 +3,8 @@
 @section('title','All Tags')
 
 @push('css')
-
+    <!-- JQuery DataTable Css -->
+    <link href="{{asset('assets/Backend/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css')}}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -14,12 +15,15 @@
                 <div class="header">
                     <h2>
                         ALL BLOG TAGS
-                        <small></small>
+                        <span class="badge bg-red">{{$tags->count()}}</span>
+                        <span class="pull-right" style="top: 18%;position: absolute;right: 1%;">
+                                <a href="{{route('admin.blog-tag.create')}}" class="btn btn-primary waves-effect"><i class="material-icons">add</i> <span>Add Tag</span></a>
+                        </span>
                     </h2>
 
                 </div>
                 <div class="body table-responsive">
-                    <table class="table">
+                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                         <thead>
                         <tr>
                             <th>ID</th>
@@ -75,5 +79,16 @@
 @endsection
 
 @push('js')
-
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="{{asset('assets/Backend/plugins/jquery-datatable/jquery.dataTables.js')}}"></script>
+    <script src="{{asset('assets/Backend/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js')}}"></script>
+    <script src="{{asset('assets/Backend/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js')}}"></script>
+    <script src="{{asset('assets/Backend/plugins/jquery-datatable/extensions/export/buttons.flash.min.js')}}"></script>
+    <script src="{{asset('assets/Backend/plugins/jquery-datatable/extensions/export/jszip.min.js')}}"></script>
+    <script src="{{asset('assets/Backend/plugins/jquery-datatable/extensions/export/pdfmake.min.js')}}"></script>
+    <script src="{{asset('assets/Backend/plugins/jquery-datatable/extensions/export/vfs_fonts.js')}}"></script>
+    <script src="{{asset('assets/Backend/plugins/jquery-datatable/extensions/export/buttons.html5.min.js')}}"></script>
+    <script src="{{asset('assets/Backend/plugins/jquery-datatable/extensions/export/buttons.print.min.js')}}"></script>
+    <!-- Custom Js -->
+    <script src="{{asset('assets/Backend/js/pages/tables/jquery-datatable.js')}}"></script>
 @endpush
