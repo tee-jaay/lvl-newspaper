@@ -26,7 +26,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.dashboard.tag.create');
     }
 
     /**
@@ -37,7 +37,21 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required|min:3|max:20',
+        ]);
+        $tag = new Tag();
+        $tag->name = $request['name'];
+        $tag->slug = str_slug($tag->name);
+        if ($request['status']== null){
+            $tag->status = 0;
+        }else{
+            $tag->status = 1;
+        }
+        $tag->description = $request['description'];
+        $tag->save();
+
+        return redirect()->route('admin.blog-tag.index');
     }
 
     /**

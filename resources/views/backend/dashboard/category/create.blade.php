@@ -17,7 +17,7 @@
                 </div>
                 <div class="body">
                     <form action="{{route('admin.blog-category.store')}}" method="post">
-                        {{csrf_field()}}
+                        @csrf
                         <div class="form-group form-float">
                             <div class="form-line">
                                 <input type="text" id="name" class="form-control" name="name">
