@@ -9,8 +9,11 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
 <!-- Bootstrap Core Css -->
-<link href="http://localhost:8888/public/cdn/bootstrap-3/css/bootstrap.css" rel="stylesheet">
-{{--<link href="{{asset('assets/Backend/plugins/bootstrap/css/bootstrap.css')}}" rel="stylesheet">--}}
+@if (config('app.env')=='production')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.0/css/bootstrap.min.css">
+@else
+    <link href="http://localhost:8888/public/cdn/bootstrap-3/css/bootstrap.css" rel="stylesheet">
+@endif
 
 <!-- Waves Effect Css -->
 <link href="{{asset('assets/Backend/plugins/node-waves/waves.css')}}" rel="stylesheet" />
