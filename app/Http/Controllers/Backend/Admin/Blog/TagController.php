@@ -65,7 +65,8 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        //
+        $tag = Tag::findOrFail($id);
+        return view('backend.dashboard.tag.show', compact('tag'));
     }
 
     /**
@@ -76,7 +77,8 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tag = Tag::findOrFail($id);
+        return view('backend.dashboard.tag.edit', compact('tag'));
     }
 
     /**
@@ -88,7 +90,27 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name'=>'required',
+        ]);
+
+        $tag = Tag::findOrFail($id);
+
+        $tag->name = $request['name'];
+        $tag->slug = str_slug($tag->name);
+        if ($request['status']== null){
+            $tag->status = 0;
+        }else{
+            $tag->status = 1;
+        }
+        $tag->description = $request['description'];
+
+        $tag->update();
+
+        Toastr::success('Tag Updated Successfully!','Done!');
+
+
+        return redirect()->route('admin.blog-tag.index');
     }
 
     /**

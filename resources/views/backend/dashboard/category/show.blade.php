@@ -13,6 +13,10 @@
                 <div class="header">
                     <h2>
                         {{strtoupper($category->name)}}
+                        <span class="pull-right" style="top: 18%;position: absolute;right: 1%;">
+                            <a href="{{route('admin.blog-category.edit', $category->id)}}" class="btn btn-warning waves-effect"><i class="material-icons">edit</i> <span>Edit</span></a>
+                            <a href="{{route('admin.blog-category.index')}}" class="btn btn-primary waves-effect"><i class="material-icons">arrow_back</i> <span>Back</span></a>
+                        </span>
                     </h2>
 
                 </div>

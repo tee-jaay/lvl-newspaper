@@ -1,6 +1,6 @@
 @extends('backend.layouts.main')
 
-@section('title','Category - '. ucfirst($category->name))
+@section('title','Tag - '. ucfirst($tag->name))
 
 @push('css')
 
@@ -12,23 +12,22 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        {{strtoupper($category->name)}}
+                        {{strtoupper($tag->name)}}
+                        <span class="pull-right" style="top: 18%;position: absolute;right: 1%;">
+                            <a href="{{route('admin.blog-tag.edit', $tag->id)}}" class="btn btn-warning waves-effect"><i class="material-icons">edit</i> <span>Edit</span></a>
+                            <a href="{{route('admin.blog-tag.index')}}" class="btn btn-primary waves-effect"><i class="material-icons">arrow_back</i> <span>Back</span></a>
+                        </span>
                     </h2>
-
                 </div>
                 <div class="body">
-                    <h5>
-                        Background Color:
-                    </h5>
-                    <span style="background-color: {{$category->bg_color}}; color: white; padding: 5px 8px;">{{$category->bg_color}}</span>
                     <h5>Description:</h5>
                     <p>
-                        {{$category->description}}
+                        {{$tag->description}}
                     </p>
                     <h5>Total Posts</h5>
-                        {{$category->posts->count()}}
+                        {{$tag->posts->count()}}
                     <h5>Status:</h5>
-                    @if ($category->status == 1)
+                    @if ($tag->status == 1)
                         <span class="success">Published</span>
                     @else
                         <span class="warning">Pending</span>
