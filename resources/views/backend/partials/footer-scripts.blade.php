@@ -26,3 +26,7 @@
 
 <!-- Demo Js -->
 <script src="{{asset('assets/Backend/js/demo.js')}}"></script>
+
+{{--Laravel Toastr--}}
+<script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Admin\Blog;
 
 use App\Models\Blog\Tag;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -50,6 +51,8 @@ class TagController extends Controller
         }
         $tag->description = $request['description'];
         $tag->save();
+
+        Toastr::success('New Tag Saved Successfully!','Done!');
 
         return redirect()->route('admin.blog-tag.index');
     }

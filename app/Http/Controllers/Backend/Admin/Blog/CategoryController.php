@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Admin\Blog;
 
 use App\Models\Blog\Category;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -52,6 +53,8 @@ class CategoryController extends Controller
         $category->description = $request['description'];
 
         $category->save();
+
+        Toastr::success('New Category Saved Successfully!','Done!');
 
         return redirect()->route('admin.blog-category.index');
 
@@ -108,6 +111,9 @@ class CategoryController extends Controller
         $category->description = $request['description'];
 
         $category->update();
+
+        Toastr::success('Category Updated Successfully!','Done!');
+
 
         return redirect()->route('admin.blog-category.index');
     }
