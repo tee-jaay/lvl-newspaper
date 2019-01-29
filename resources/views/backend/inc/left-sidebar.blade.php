@@ -56,28 +56,22 @@
                         </ul>
                     </li>
 
-                    <li>
+                    <li class="{{Request::is('admin/blog/tag*')?'active':''}}">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <span>Tags</span>
                         </a>
                         <ul class="ml-menu">
-                            <li>
-                                <a href="../../pages/widgets/infobox/infobox-1.html">Infobox-1</a>
+                            <li class="{{Request::is('admin/blog/tag')?'active':''}}">
+                                <a href="{{route('admin.blog-tag.index')}}">All Tags</a>
                             </li>
-                            <li>
-                                <a href="../../pages/widgets/infobox/infobox-2.html">Infobox-2</a>
+
+                            <li class="{{Request::is('admin/blog/tag/create')?'active':''}}">
+                                <a href="{{route('admin.blog-tag.create')}}">New Tag</a>
                             </li>
-                            <li>
-                                <a href="../../pages/widgets/infobox/infobox-3.html">Infobox-3</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/widgets/infobox/infobox-4.html">Infobox-4</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/widgets/infobox/infobox-5.html">Infobox-5</a>
-                            </li>
+
                         </ul>
                     </li>
+
                 </ul>
             </li>
 
