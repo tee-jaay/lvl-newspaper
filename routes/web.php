@@ -24,10 +24,12 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Backend\Adm
     // Dashboard
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     // ------ Blog ------ //
-    // category
+    // Category
     Route::resource('blog/category','Blog\CategoryController', ['names' => 'blog-category']);
-    // tag
+    // Tag
     Route::resource('blog/tag','Blog\TagController', ['names' => 'blog-tag']);
+    // Post
+    Route::resource('blog/post','Blog\PostController', ['names' => 'blog-post']);
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

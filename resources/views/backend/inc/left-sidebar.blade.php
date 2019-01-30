@@ -16,7 +16,12 @@
                     <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
                     <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                    <li><a href="{{route('logout')}}" onclick="event.preventDefault();
+                                 document.getElementById('sign-out-form').submit();" ><i class="material-icons">input</i>Sign Out</a>
+                        <form id="sign-out-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -39,18 +44,24 @@
                     <span>Blog</span>
                 </a>
                 <ul class="ml-menu">
-
                     <li class="{{Request::is('admin/blog/category*')?'active':''}}">
                         <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons extra">category</i>
                             <span>Categories</span>
                         </a>
                         <ul class="ml-menu">
                             <li class="{{Request::is('admin/blog/category')?'active':''}}">
-                                <a href="{{route('admin.blog-category.index')}}">All Categories</a>
+                                <a href="{{route('admin.blog-category.index')}}">
+                                    <i class="material-icons">list</i>
+                                    <span>All Categories</span>
+                                </a>
                             </li>
 
                             <li class="{{Request::is('admin/blog/category/create')?'active':''}}">
-                                <a href="{{route('admin.blog-category.create')}}">New Category</a>
+                                <a href="{{route('admin.blog-category.create')}}">
+                                    <i class="material-icons">add</i>
+                                    <span>New Category</span>
+                                </a>
                             </li>
 
                         </ul>
@@ -58,17 +69,46 @@
 
                     <li class="{{Request::is('admin/blog/tag*')?'active':''}}">
                         <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">bookmarks</i>
                             <span>Tags</span>
                         </a>
                         <ul class="ml-menu">
                             <li class="{{Request::is('admin/blog/tag')?'active':''}}">
-                                <a href="{{route('admin.blog-tag.index')}}">All Tags</a>
+                                <a href="{{route('admin.blog-tag.index')}}">
+                                    <i class="material-icons">list</i>
+                                    <span>All Tags</span>
+                                </a>
                             </li>
 
                             <li class="{{Request::is('admin/blog/tag/create')?'active':''}}">
-                                <a href="{{route('admin.blog-tag.create')}}">New Tag</a>
+                                <a href="{{route('admin.blog-tag.create')}}">
+                                    <i class="material-icons">add</i>
+                                    <span>New Tag</span>
+                                </a>
                             </li>
 
+                        </ul>
+                    </li>
+
+                    <li class="{{Request::is('admin/blog/post*')?'active':''}}">
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">library_books</i>
+                            <span>Posts</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li class="{{Request::is('admin/blog/post')?'active':''}}">
+                                <a href="{{route('admin.blog-post.index')}}">
+                                    <i class="material-icons">description</i>
+                                    <span>All Posts</span>
+                                </a>
+                            </li>
+
+                            <li class="{{Request::is('admin/blog/post/create')?'active':''}}">
+                                <a href="{{route('admin.blog-post.create')}}">
+                                    <i class="material-icons">add</i>
+                                    <span>New Post</span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
