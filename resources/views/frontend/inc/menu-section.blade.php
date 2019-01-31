@@ -141,17 +141,18 @@
                                                             <div class="row">
 
                                                                 @foreach ($subposts as $post)
-                                                                    <!-- Post Start -->
-                                                                    <div class="post post-small col-lg-3 col-md-4 mb-30">
-                                                                        <div class="post-wrap">
-                                                                            <a href="{{route('post.show', $post->slug)}}" class="image"><img src="{{$post->image['float_left']}}" alt="Post"></a>
-                                                                            <div class="content">
-                                                                                <h5 class="title"><a href="{{route('post.show', $post->slug)}}">{{str_limit($post->title, 36)}}</a></h5>
+                                                                    @if ($loop->index < 8)
+                                                                        <!-- Post Start -->
+                                                                        <div class="post post-small col-lg-3 col-md-4 mb-30">
+                                                                            <div class="post-wrap">
+                                                                                <a href="{{route('post.show', $post->slug)}}" class="image"><img src="{{$post->image['float_left']}}" alt="Post"></a>
+                                                                                <div class="content">
+                                                                                    <h5 class="title"><a href="{{route('post.show', $post->slug)}}">{{str_limit($post->title, 36)}}</a></h5>
+                                                                                </div>
                                                                             </div>
-                                                                        </div>
-                                                                    </div><!-- Post End -->
-
-                                                                    @endforeach
+                                                                        </div><!-- Post End -->
+                                                                    @endif
+                                                                @endforeach
 
 
                                                             </div>
