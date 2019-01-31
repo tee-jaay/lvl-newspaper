@@ -27,7 +27,7 @@
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" id="bg-color" class="form-control" name="bg-color" >
+                                <input type="text" id="bgcolor" class="form-control" name="bgcolor" >
                                 <label class="form-label">Background Color</label>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
     <script>
         $(function () {
             // Basic instantiation:
-            $('#bg-color').colorpicker();
+            $('#bgcolor').colorpicker();
         });
     </script>
 @endpush

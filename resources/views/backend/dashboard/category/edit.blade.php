@@ -28,7 +28,7 @@
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" id="bg-color" class="form-control" name="bg-color" value="{{$category->bg_color}}">
+                                <input type="text" id="bgcolor" class="form-control" name="bgcolor" value="{{$category->bg_color}}">
                                 <label class="form-label">Background Color</label>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
     <script>
         $(function () {
             // colorpicker:
-            $('#bg-color').colorpicker();
+            $('#bgcolor').colorpicker();
         });
     </script>
 @endpush

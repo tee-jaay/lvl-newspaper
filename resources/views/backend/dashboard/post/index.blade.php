@@ -17,7 +17,7 @@
                         ALL BLOG POSTS
                         <span class="badge bg-red">{{$posts->count()}}</span>
                         <span class="pull-right" style="top: 18%;position: absolute;right: 1%;">
-                                <a href="{{route('admin.blog-category.create')}}" class="btn btn-primary waves-effect"><i class="material-icons">add</i> <span>Add Category</span></a>
+                                <a href="{{route('admin.blog-post.create')}}" class="btn btn-primary waves-effect"><i class="material-icons">add</i> <span>Add Post</span></a>
                         </span>
                     </h2>
 

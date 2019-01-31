@@ -15,13 +15,14 @@
                                     <!-- Submenu Start -->
                                     <ul class="sub-menu">
                                         <li><a href="{{route('home')}}">Home One</a></li>
-                                        <li><a href="index-2.html">Home Two</a></li>
-                                        <li><a href="index-3.html">Home Three</a></li>
-                                    </ul><!-- Submenu End -->
+                                        {{--<li><a href="index-2.html">Home Two</a></li>--}}
+                                        {{--<li><a href="index-3.html">Home Three</a></li>--}}
+                                    </ul>
+                                    <!-- Submenu End -->
 
                                 </li>
-                                <li><a href="category-lifestyle.html">News</a></li>
-                                <li><a href="category-sports.html">Sports</a></li>
+                                {{--<li><a href="category-lifestyle.html">News</a></li>--}}
+                                {{--<li><a href="category-sports.html">Sports</a></li>--}}
 
                                 <li class="has-dropdown"><a href="{{route('blog')}}">Blog</a>
 
@@ -38,98 +39,11 @@
                                                     </li>
                                                 @endforeach
                                             @endif
-                                        </ul><!-- Menu Tab List End -->
+                                        </ul>
+                                        <!-- Menu Tab List End -->
 
                                         <!-- Menu Tab Content Start -->
                                         <div class="tab-content menu-tab-content fix">
-
-                                            <!-- Menu Tab Pane Start -->
-                                        {{--<div class="tab-pane fade show active" id="menu-tab-one">--}}
-                                        {{--<div class="row">--}}
-
-                                        {{--<!-- Post Start -->--}}
-                                        {{--<div class="post post-small col-lg-3 col-md-4 mb-30">--}}
-                                        {{--<div class="post-wrap">--}}
-                                        {{--<a href="post-details.html" class="image"><img src="{{asset('assets/Frontend/img/post/post-136.jpg')}}" alt="Post"></a>--}}
-                                        {{--<div class="content">--}}
-                                        {{--<h5 class="title"><a href="post-details.html">Marilyn Monroe’s beauty secrets the most</a></h5>--}}
-                                        {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--</div><!-- Post End -->--}}
-
-                                        {{--<!-- Post Start -->--}}
-                                        {{--<div class="post post-small col-lg-3 col-md-4 mb-30">--}}
-                                        {{--<div class="post-wrap">--}}
-                                        {{--<a href="post-details.html" class="image"><img src="{{asset('assets/Frontend/img/post/post-137.jpg')}}" alt="Post"></a>--}}
-                                        {{--<div class="content">--}}
-                                        {{--<h5 class="title"><a href="post-details.html">Hynpodia helps fmaletravelers find health.</a></h5>--}}
-                                        {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--</div><!-- Post End -->--}}
-
-                                        {{--<!-- Post Start -->--}}
-                                        {{--<div class="post post-small col-lg-3 col-md-4 mb-30">--}}
-                                        {{--<div class="post-wrap">--}}
-                                        {{--<a href="post-details.html" class="image"><img src="{{asset('assets/Frontend/img/post/post-138.jpg')}}" alt="Post"></a>--}}
-                                        {{--<div class="content">--}}
-                                        {{--<h5 class="title"><a href="post-details.html">Upcoming Event 10 Dec at Bonobisree Area.</a></h5>--}}
-                                        {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--</div><!-- Post End -->--}}
-
-                                        {{--<!-- Post Start -->--}}
-                                        {{--<div class="post post-small col-lg-3 col-md-4 mb-30">--}}
-                                        {{--<div class="post-wrap">--}}
-                                        {{--<a href="post-details.html" class="image"><img src="{{asset('assets/Frontend/img/post/post-139.jpg')}}" alt="Post"></a>--}}
-                                        {{--<div class="content">--}}
-                                        {{--<h5 class="title"><a href="post-details.html">Upcoming Event 10 Dec at Bonobisree Area.</a></h5>--}}
-                                        {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--</div><!-- Post End -->--}}
-
-                                        {{--<!-- Post Start -->--}}
-                                        {{--<div class="post post-small col-lg-3 col-md-4 mb-30">--}}
-                                        {{--<div class="post-wrap">--}}
-                                        {{--<a href="post-details.html" class="image"><img src="{{asset('assets/Frontend/img/post/post-140.jpg')}}" alt="Post"></a>--}}
-                                        {{--<div class="content">--}}
-                                        {{--<h5 class="title"><a href="post-details.html">How do you solve the long tiredness.</a></h5>--}}
-                                        {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--</div><!-- Post End -->--}}
-
-                                        {{--<!-- Post Start -->--}}
-                                        {{--<div class="post post-small col-lg-3 col-md-4 mb-30">--}}
-                                        {{--<div class="post-wrap">--}}
-                                        {{--<a href="post-details.html" class="image"><img src="{{asset('assets/Frontend/img/post/post-141.jpg')}}" alt="Post"></a>--}}
-                                        {{--<div class="content">--}}
-                                        {{--<h5 class="title"><a href="post-details.html">Australia announced squad for Bangladesh tour</a></h5>--}}
-                                        {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--</div><!-- Post End -->--}}
-
-                                        {{--<!-- Post Start -->--}}
-                                        {{--<div class="post post-small col-lg-3 col-md-4 mb-30">--}}
-                                        {{--<div class="post-wrap">--}}
-                                        {{--<a href="post-details.html" class="image"><img src="{{asset('assets/Frontend/img/post/post-142.jpg')}}" alt="Post"></a>--}}
-                                        {{--<div class="content">--}}
-                                        {{--<h5 class="title"><a href="post-details.html">Fance fry with chicken burger.</a></h5>--}}
-                                        {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--</div><!-- Post End -->--}}
-
-                                        {{--<!-- Post Start -->--}}
-                                        {{--<div class="post post-small col-lg-3 col-md-4 mb-30">--}}
-                                        {{--<div class="post-wrap">--}}
-                                        {{--<a href="post-details.html" class="image"><img src="{{asset('assets/Frontend/img/post/post-143.jpg')}}" alt="Post"></a>--}}
-                                        {{--<div class="content">--}}
-                                        {{--<h5 class="title"><a href="post-details.html">Fashion is about some thing that comes . . . . </a></h5>--}}
-                                        {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--</div><!-- Post End -->--}}
-
-                                        {{--</div>--}}
-                                        {{--</div>--}}
-                                        <!-- Menu Tab Pane End -->
 
                                         @foreach ($posts as $category_id => $subposts)
                                             <!-- Menu Tab Pane Start -->
@@ -174,7 +88,7 @@
                                 </li>
 
 
-                                <li><a href="category-politic.html">politic</a></li>
+                                {{--<li><a href="category-politic.html">politic</a></li>--}}
                                 <li><a href="{{route('contact')}}">contact</a></li>
                                 <li class="active has-dropdown"><a href="#">pages</a>
 

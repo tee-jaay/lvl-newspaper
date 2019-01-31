@@ -33,28 +33,37 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'=>'required',
-            'bg-color'=>'required',
+            'name' => 'required',
+            'bgcolor' => 'required',
         ]);
 
+//        $category = new Category();
+//        $category->name = $request['name'];
+//        $category->slug = str_slug($category->name);
+//        $category->bg_color = $request['bg-color'];
+//        if ($request['status']== null){
+//            $category->status = 0;
+//        }
+//        $category->description = $request['description'];
+
         $category = new Category();
-        $category->name = $request['name'];
+        $category->name = $request->name;
         $category->slug = str_slug($category->name);
-        $category->bg_color = $request['bg-color'];
-        if ($request['status']== null){
+        $category->bg_color = $request->bgcolor;
+        if ($request->status == null) {
             $category->status = 0;
         }
-        $category->description = $request['description'];
+        $category->description = $request->description;
 
         $category->save();
 
-        Toastr::success('New Category Saved Successfully!','Done!');
+        Toastr::success('New Category Saved Successfully!', 'Done!');
 
         return redirect()->route('admin.blog-category.index');
 
@@ -63,7 +72,7 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -75,7 +84,7 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -87,32 +96,42 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name'=>'required',
-            'bg-color'=>'required',
+            'name' => 'required',
+            'bgcolor' => 'required',
         ]);
 
         $category = Category::findOrFail($id);
 
-        $category->name = $request['name'];
+//        $category->name = $request['name'];
+//        $category->slug = str_slug($category->name);
+//        $category->bg_color = $request['bg-color'];
+//        if ($request['status'] == null) {
+//            $category->status = 0;
+//        } else {
+//            $category->status = 1;
+//        }
+//        $category->description = $request['description'];
+
+        $category->name = $request->name;
         $category->slug = str_slug($category->name);
-        $category->bg_color = $request['bg-color'];
-        if ($request['status']== null){
+        $category->bg_color = $request->bgcolor;
+        if ($request->status == null) {
             $category->status = 0;
-        }else{
+        } else {
             $category->status = 1;
         }
-        $category->description = $request['description'];
+        $category->description = $request->description;
 
         $category->update();
 
-        Toastr::success('Category Updated Successfully!','Done!');
+        Toastr::success('Category Updated Successfully!', 'Done!');
 
 
         return redirect()->route('admin.blog-category.index');
@@ -121,7 +140,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

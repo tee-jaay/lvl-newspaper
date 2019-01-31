@@ -33,26 +33,27 @@ class TagController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'name'=>'required|min:3|max:20',
+        $this->validate($request, [
+            'name' => 'required|min:3|max:20',
         ]);
         $tag = new Tag();
-        $tag->name = $request['name'];
+
+        $tag->name = $request->name;
         $tag->slug = str_slug($tag->name);
-        if ($request['status']== null){
+        if ($request->status == null) {
             $tag->status = 0;
-        }else{
+        } else {
             $tag->status = 1;
         }
-        $tag->description = $request['description'];
+        $tag->description = $request->description;
         $tag->save();
 
-        Toastr::success('New Tag Saved Successfully!','Done!');
+        Toastr::success('New Tag Saved Successfully!', 'Done!');
 
         return redirect()->route('admin.blog-tag.index');
     }
@@ -60,7 +61,7 @@ class TagController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -72,7 +73,7 @@ class TagController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -84,30 +85,30 @@ class TagController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name'=>'required',
+            'name' => 'required',
         ]);
 
         $tag = Tag::findOrFail($id);
 
-        $tag->name = $request['name'];
+        $tag->name = $request->name;
         $tag->slug = str_slug($tag->name);
-        if ($request['status']== null){
+        if ($request->status == null) {
             $tag->status = 0;
-        }else{
+        } else {
             $tag->status = 1;
         }
-        $tag->description = $request['description'];
+        $tag->description = $request->description;
 
         $tag->update();
 
-        Toastr::success('Tag Updated Successfully!','Done!');
+        Toastr::success('Tag Updated Successfully!', 'Done!');
 
 
         return redirect()->route('admin.blog-tag.index');
@@ -116,7 +117,7 @@ class TagController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
