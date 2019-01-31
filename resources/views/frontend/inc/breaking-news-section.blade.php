@@ -12,10 +12,10 @@
 
                     <!-- Breaking Newsticker Start -->
                     <ul class="breaking-news-ticker float-left">
-                        <li><a href="#">Tell me what you today, And i ‘ll tell you who you are!!!</a></li>
-                        <li><a href="#">Fashion is about some thing that comes from with in you.</a></li>
-                        <li><a href="#">Australia announced squad for Bangladesh tour.</a></li>
-                        <li><a href="#">How group of rebel are talking on Banasree epidemic.</a></li>
+                        {{--<li><a href="#">Tell me what you today, And i ‘ll tell you who you are!!!</a></li>--}}
+                        {{--<li><a href="#">Fashion is about some thing that comes from with in you.</a></li>--}}
+                        {{--<li><a href="#">Australia announced squad for Bangladesh tour.</a></li>--}}
+                        {{--<li><a href="#">How group of rebel are talking on Banasree epidemic.</a></li>--}}
                     </ul><!-- Breaking Newsticker Start -->
 
                     <!-- Breaking News Nav -->

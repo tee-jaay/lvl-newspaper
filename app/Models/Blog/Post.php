@@ -8,23 +8,30 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    public function image(){
+    protected $fillable = ['author_id', 'title', 'slug', 'category_id', 'top_text', 'italic', 'mid_text', 'color_quote', 'bottom_text'];
+
+    public function image()
+    {
         return $this->hasOne(PostImage::class);
     }
 
-    public function category(){
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
 
-    public function author(){
+    public function author()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function tags(){
+    public function tags()
+    {
         return $this->belongsToMany(Tag::class);
     }
 
-    public function comments(){
+    public function comments()
+    {
         return $this->hasMany(Comment::class);
     }
 

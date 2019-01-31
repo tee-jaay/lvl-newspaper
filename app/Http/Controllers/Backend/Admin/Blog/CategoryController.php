@@ -43,15 +43,6 @@ class CategoryController extends Controller
             'bgcolor' => 'required',
         ]);
 
-//        $category = new Category();
-//        $category->name = $request['name'];
-//        $category->slug = str_slug($category->name);
-//        $category->bg_color = $request['bg-color'];
-//        if ($request['status']== null){
-//            $category->status = 0;
-//        }
-//        $category->description = $request['description'];
-
         $category = new Category();
         $category->name = $request->name;
         $category->slug = str_slug($category->name);
@@ -108,16 +99,6 @@ class CategoryController extends Controller
         ]);
 
         $category = Category::findOrFail($id);
-
-//        $category->name = $request['name'];
-//        $category->slug = str_slug($category->name);
-//        $category->bg_color = $request['bg-color'];
-//        if ($request['status'] == null) {
-//            $category->status = 0;
-//        } else {
-//            $category->status = 1;
-//        }
-//        $category->description = $request['description'];
 
         $category->name = $request->name;
         $category->slug = str_slug($category->name);

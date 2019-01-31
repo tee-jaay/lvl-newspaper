@@ -12,13 +12,22 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        {{strtoupper($post->title)}}
-                        <span class="pull-right" style="top: 18%;position: absolute;right: 1%;">
-                            <a href="{{route('admin.blog-post.edit', $post->id)}}" class="btn btn-warning waves-effect"><i
+                        <div class="row">
+                            <div class="col-md-9">
+                                Title:
+                                {{strtoupper($post->title)}}
+                            </div>
+                            <div class="col-md-3">
+                                <span class="pull-right" style="top: 18%;position: absolute;right: 1%;">
+                                    <a href="{{route('admin.blog-post.edit', $post->id)}}" class="btn btn-warning waves-effect"><i
                                         class="material-icons">edit</i> <span>Edit</span></a>
-                            <a href="{{route('admin.blog-post.index')}}" class="btn btn-primary waves-effect"><i
+                                    <a href="{{route('admin.blog-post.index')}}" class="btn btn-primary waves-effect"><i
                                         class="material-icons">arrow_back</i> <span>All Posts</span></a>
-                        </span>
+                                </span>
+                            </div>
+                        </div>
+
+
                     </h2>
                 </div>
 
@@ -32,7 +41,9 @@
                         </div>
                         <div class="col-md-2">
                             <h5>Category:</h5>
-                            <p><a href="{{route('admin.blog-category.show',$post->category['id'])}}">{{ucfirst($post->category['name'])}}</a></p>
+                            <p>
+                                <a href="{{route('admin.blog-category.show',$post->category['id'])}}">{{ucfirst($post->category['name'])}}</a>
+                            </p>
                         </div>
                         <div class="col-md-2">
                             <h5>Total Views</h5>
@@ -50,7 +61,8 @@
                             <h5>Tags:</h5>
                             @if (isset($post->tags))
                                 @foreach ($post->tags as $tag)
-                                    <a href="{{route('admin.blog-tag.show', $tag->id)}}"><i class="fa fa-tags"> {{ucfirst($tag->name)}}</i></a>
+                                    <a href="{{route('admin.blog-tag.show', $tag->id)}}"><i
+                                                class="fa fa-tags"> {{ucfirst($tag->name)}}</i></a>
                                 @endforeach
                             @endif
                         </div>
@@ -61,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="card">
                 <div class="body">
                     <h5>Main Image:</h5>
@@ -70,7 +82,7 @@
                     </p>
                 </div>
             </div>
-            
+
             <div class="card">
                 <div class="body">
                     <h5>Top Text:</h5>
@@ -128,7 +140,6 @@
                     </div>
                 </div>
             </div>
-
 
 
         </div>

@@ -11,8 +11,12 @@
 <!-- Bootstrap Core Css -->
 @if (config('app.env')=='production')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/css/bootstrap-select.min.css">
 @else
     <link href="http://localhost:8888/public/cdn/bootstrap-3/css/bootstrap.css" rel="stylesheet">
+
+    {{--Bootstrap Select--}}
+    <link rel="stylesheet" href="{{asset('assets/Backend/plugins/bootstrap-select/css/bootstrap-select.css')}}">
 @endif
 
 <!-- Waves Effect Css -->
