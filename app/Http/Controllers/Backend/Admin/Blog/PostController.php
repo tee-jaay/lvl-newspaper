@@ -4,9 +4,15 @@ namespace App\Http\Controllers\Backend\Admin\Blog;
 
 use App\Models\Blog\Category;
 use App\Models\Blog\Post;
+use App\Models\Blog\PostImage;
 use App\Models\Blog\Tag;
+use Brian2694\Toastr\Facades\Toastr;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class PostController extends Controller
 {
@@ -41,7 +47,55 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-       dd($request->all());
+       $this->validate($request,[
+           'title'=> 'required',
+           'category_id'=> 'required',
+       ]);
+
+       $slug = str_slug($request->title);
+
+       $mainImage = $request->file('main');
+
+       if (isset($mainImage)){
+           // make unique name image
+           $currentDate = Carbon::now()->toDateString();
+           // LOCAL ENV
+            // if (config('app.env') == 'production') {
+           if (config('app.env') == 'local'){
+               $imageName = $slug . '-' . $currentDate . '' . uniqid() . '-' . $mainImage->getClientOriginalExtension();
+               if (!Storage::disk('public')->exists('blog/post')) {
+                   Storage::disk('public')->makeDirectory('blog/post');
+               }
+               $resizeImage = Image::make($mainImage)->resize(730, 400)->save();
+               Storage::disk('public')->put('blog/post/' . $imageName, $resizeImage);
+           }
+
+       }
+
+       $post = new Post();
+
+       $post->author_id = Auth::id();
+       $post->title = $request->title;
+       $post->slug = $slug;
+       $post->category_id = $request->category_id;
+       $post->top_text = $request->top_text;
+       $post->italic = $request->italic;
+       $post->mid_text = $request->color_quote;
+       $post->bottom_text = $request->bottom_text;
+
+       $post->image->main = $request->main;
+
+       $post->image->float_left = $request->float_left;
+
+       $post->image->float_right = $request->float_right;
+
+//       $post->save();
+//
+//       Toastr::success('Post Saved Successfully!', 'Done!');
+
+       return redirect()->route('admin.blog-post.index');
+
+
     }
 
     /**

@@ -54,7 +54,7 @@
                             <div class="form-line {{$errors->has('categories'?'focused error':'')}}">
                                 <label for="category">Select a Category</label>
                                 <select name="category" id="category" class="form-control show-tick"
-                                        data-live-search="true" multiple>
+                                        data-live-search="true" >
                                     @foreach($categories as $category)
                                         <option value="{{$category->id}}">{{ucfirst($category->name)}}</option>
                                     @endforeach
