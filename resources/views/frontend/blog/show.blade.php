@@ -136,9 +136,21 @@
                 <h3 class="title">{{$post->title}}</h3>
 
                 <!-- Image -->
-                <div class="image"><img src="@if (isset($post->image->main))
-                    {{$post->image->main}}
-                @endif " alt="{{$post->title}}"></div>
+                <div class="image">
+                    @if (config('app.env')=='local')
+                        <img src="
+                            @if (isset($post->image->main))
+                                {{Storage::disk('public')->url('blog/post/'.$post->category->slug.'/'.$post->image->main)}}
+                            @endif "
+                         alt="{{$post->title}}">
+                    @else
+                        <img src="
+                            @if (isset($post->image->main))
+                                {{$post->image->main}}
+                            @endif "
+                         alt="{{$post->title}}">
+                    @endif
+                </div>
 
                 <!-- Content -->
                 <div class="content">
@@ -146,18 +158,43 @@
                     <!-- Description -->
                     <p>{!! $post->top_text !!}</p>
 
-                    <p><img class="float-left mr-3" src="@if (isset($post->image->float_left))
-                        {{$post->image->float_left}}
-                    @endif" alt="post">
+                    <p>
+                        @if (config('app.env')=='local')
+                            <img class="float-left mr-3" src="
+                            @if (isset($post->image->float_left))
+                            {{Storage::disk('public')->url('blog/post/'.$post->category->slug.'/'.$post->image->float_left)}}
+                            @endif"
+                                 alt="{{$post->title}}">
+                        @else
+                            <img class="float-left mr-3" src="
+                            @if (isset($post->image->float_left))
+                                {{$post->image->float_left}}
+                            @endif"
+                                 alt="{{$post->title}}">
+                        @endif
+
                         <span class="h4 italic d-block">{{$post->italic}}</span> <br>
-                        {{$post->mid_text}}</p>
+                        {{$post->mid_text}}
+                    </p>
                     <blockquote class="blockquote">
                         <p>{{$post->color_quote}}</p>
                     </blockquote>
-                    <p><img class="float-right ml-2" src="@if (isset($post->image->float_right))
-                        {{$post->image->float_right}}
-                    @endif"
-                            alt="post">{!! $post->bottom_text !!}</p>
+                    <p>
+                        @if (config('app.env')=='local')
+                            <img class="float-right ml-2" src="
+                                @if (isset($post->image->float_right))
+                                    {{Storage::disk('public')->url('blog/post/'.$post->category->slug.'/'.$post->image->float_right)}}
+                                @endif"
+                             alt="{{$post->title}}">
+                        @else
+                            <img class="float-right ml-2" src="@if (isset($post->image->float_right))
+                            {{$post->image->float_right}}
+                            @endif"
+                                 alt="{{$post->title}}">
+                        @endif
+
+
+                    {!! $post->bottom_text !!}</p>
 
                 </div>
 

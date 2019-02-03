@@ -56,7 +56,7 @@ class PostController extends Controller
 
        $categoryId = $request->category;
        $postCategory = Category::where('id',$categoryId)->first();
-       $categoryName = $postCategory->name;
+       $categoryName = $postCategory->slug;
         $postImagePath = 'blog/post/'.$categoryName.'/';
 
        // main image

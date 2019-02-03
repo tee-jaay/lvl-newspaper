@@ -38,7 +38,16 @@
                     <div class="post-wrap">
 
                         <!-- Image -->
-                        <a class="image" href="{{route('post.show', $post->slug)}}"><img src="{{$post->image['float_right']}}" alt="{{str_limit($post->title, 30)}}"></a>
+{{--                        <a class="image" href="{{route('post.show', $post->slug)}}"><img src="{{$post->image['float_right']}}" alt="{{str_limit($post->title, 30)}}"></a>--}}
+                        <a href="{{route('post.show', $post->slug)}}" class="image">
+                            @if(config('app.env')=='local')
+                                <img src="{{Storage::disk('public')->url('blog/post/'.$post->category->slug.'/'.$post->image->float_right)}}" alt="{{$post->title}}">
+                            @else
+                                @if (isset($post->image->main))
+                                    <img src="{{$post->image->main}}" alt="{{$post->title}}">
+                                @endif
+                            @endif
+                        </a>
 
                         <!-- Content -->
                         <div class="content">

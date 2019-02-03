@@ -72,10 +72,15 @@
                         <h3 class="title"><a href="{{route('post.show', $post->slug)}}">{{$post->title}}</a></h3>
 
                         <!-- Image -->
-                        <a href="{{route('post.show', $post->slug)}}" class="image"><img src="@if (isset($post->image->main))
-                            {{$post->image->main}}
-                        @endif"
-                                                                                         alt="post"></a>
+                        <a href="{{route('post.show', $post->slug)}}" class="image">
+                            @if(config('app.env')=='local')
+                                <img src="{{Storage::disk('public')->url('blog/post/'.$post->category->slug.'/'.$post->image->main)}}" alt="{{$post->title}}">
+                            @else
+                                @if (isset($post->image->main))
+                                    <img src="{{$post->image->main}}" alt="{{$post->title}}">
+                                @endif
+                            @endif
+                        </a>
 
                         <!-- Content -->
                         <div class="content">
