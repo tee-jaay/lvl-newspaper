@@ -24,7 +24,7 @@
                                 {{--<li><a href="category-lifestyle.html">News</a></li>--}}
                                 {{--<li><a href="category-sports.html">Sports</a></li>--}}
 
-                                <li class="has-dropdown"><a href="{{route('blog')}}">Blog</a>
+                                <li class="has-dropdown"><a href="{{route('blog')}}">Blog Categories</a>
 
                                     <!-- Mega Menu Start -->
                                     <div class="mega-menu">

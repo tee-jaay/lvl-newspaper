@@ -23,7 +23,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::latest()->get();
         return view('backend.dashboard.post.index', compact('posts'));
     }
 
@@ -49,49 +49,96 @@ class PostController extends Controller
     {
        $this->validate($request,[
            'title'=> 'required',
-           'category_id'=> 'required',
+           'category'=> 'required',
        ]);
 
        $slug = str_slug($request->title);
 
-       $mainImage = $request->file('main');
+       $categoryId = $request->category;
+       $postCategory = Category::where('id',$categoryId)->first();
+       $categoryName = $postCategory->name;
+        $postImagePath = 'blog/post/'.$categoryName.'/';
 
+       // main image
+       $mainImage = $request->file('main');
        if (isset($mainImage)){
            // make unique name image
            $currentDate = Carbon::now()->toDateString();
            // LOCAL ENV
             // if (config('app.env') == 'production') {
            if (config('app.env') == 'local'){
-               $imageName = $slug . '-' . $currentDate . '' . uniqid() . '-' . $mainImage->getClientOriginalExtension();
-               if (!Storage::disk('public')->exists('blog/post')) {
-                   Storage::disk('public')->makeDirectory('blog/post');
+               $mainImageName = $slug . '-' . $currentDate . '' . uniqid() . '-main' . '.' . $mainImage->getClientOriginalExtension();
+               if (!Storage::disk('public')->exists($postImagePath)) {
+                   Storage::disk('public')->makeDirectory($postImagePath, 0755, true);
                }
                $resizeImage = Image::make($mainImage)->resize(730, 400)->save();
-               Storage::disk('public')->put('blog/post/' . $imageName, $resizeImage);
+               Storage::disk('public')->put($postImagePath . $mainImageName, $resizeImage);
            }
 
        }
+
+        // left image
+        $leftImage = $request->file('float_left');
+        if (isset($leftImage)){
+            // make unique name image
+            $currentDate = Carbon::now()->toDateString();
+            // LOCAL ENV
+            // if (config('app.env') == 'production') {
+            if (config('app.env') == 'local'){
+                $leftImageName = $slug . '-' . $currentDate . '' . uniqid() . '-left' .'.' . $leftImage->getClientOriginalExtension();
+                if (!Storage::disk('public')->exists($postImagePath)) {
+                    Storage::disk('public')->makeDirectory($postImagePath, 0755, true);
+                }
+                $resizeImage = Image::make($leftImage)->resize(359, 534)->save();
+                Storage::disk('public')->put($postImagePath . $leftImageName, $resizeImage);
+            }
+
+        }
+
+        // right image
+        $rightImage = $request->file('float_right');
+        if (isset($rightImage)){
+            // make unique name image
+            $currentDate = Carbon::now()->toDateString();
+            // LOCAL ENV
+            // if (config('app.env') == 'production') {
+            if (config('app.env') == 'local'){
+                $rightImageName = $slug . '-' . $currentDate . '' . uniqid() . '-right' .'.' . $leftImage->getClientOriginalExtension();
+                if (!Storage::disk('public')->exists($postImagePath)) {
+                    Storage::disk('public')->makeDirectory($postImagePath, 0755, true);
+                }
+                $resizeImage = Image::make($rightImage)->resize(352, 271)->save();
+                Storage::disk('public')->put($postImagePath . $rightImageName, $resizeImage);
+            }
+
+        }
 
        $post = new Post();
 
        $post->author_id = Auth::id();
        $post->title = $request->title;
        $post->slug = $slug;
-       $post->category_id = $request->category_id;
+       $post->category_id = $request->category;
        $post->top_text = $request->top_text;
        $post->italic = $request->italic;
-       $post->mid_text = $request->color_quote;
+       $post->mid_text = $request->mid_text;
+       $post->color_quote = $request->color_quote;
        $post->bottom_text = $request->bottom_text;
 
-       $post->image->main = $request->main;
+        $post->save();
 
-       $post->image->float_left = $request->float_left;
+        $post->tags()->attach($request->tags);
 
-       $post->image->float_right = $request->float_right;
+       $postImage = new PostImage();
 
-//       $post->save();
-//
-//       Toastr::success('Post Saved Successfully!', 'Done!');
+       $postImage->post_id = $post->id;
+       $postImage->main = $mainImageName;
+       $postImage->float_left = $leftImageName;
+       $postImage->float_right = $rightImageName;
+
+       $postImage->save();
+
+       Toastr::success('Post Saved Successfully!', 'Done!');
 
        return redirect()->route('admin.blog-post.index');
 
