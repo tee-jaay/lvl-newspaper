@@ -28,7 +28,7 @@
                         </li>
                     @endguest
                     <li><a href="{{route('contact')}}"><i class="fa fa-headphones"></i>Contact</a></li>
-                    <li><a href="{{route('blog')}}">Blog</a></li>
+                    <li><a href="{{route('blog')}}"><i class="fa fa-th"></i>Blog</a></li>
                 </ul>
 
             </div><!-- Header Top Links End -->
