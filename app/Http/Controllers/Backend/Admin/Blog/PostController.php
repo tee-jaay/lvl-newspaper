@@ -74,8 +74,8 @@ class PostController extends Controller
             // make unique name image
             $currentDate = Carbon::now()->toDateString();
             // LOCAL ENV
-            if (config('app.env') == 'production') {
-//           if (config('app.env') == 'local'){
+//            if (config('app.env') == 'production') {
+           if (config('app.env') == 'local'){
                 $mainImageName = $slug . '-' . $currentDate . '' . uniqid() . '-main' . '.' . $mainImage->getClientOriginalExtension();
                 if (!Storage::disk('public')->exists($postImagePath)) {
                     Storage::disk('public')->makeDirectory($postImagePath, 0755, true);
@@ -84,8 +84,8 @@ class PostController extends Controller
                 Storage::disk('public')->put($postImagePath . $mainImageName, $resizeImage);
             }
              // PRODUCTION ENV
-                //  if (config('app.env') == 'production') {
-            if (config('app.env') == 'local') {
+                  if (config('app.env') == 'production') {
+                //  if (config('app.env') == 'local') {
                 $mainImageName = $slug . '-main-' . $currentDate . '' . uniqid();
 
                 // cloudinary
@@ -112,8 +112,8 @@ class PostController extends Controller
              // make unique name image
             $currentDate = Carbon::now()->toDateString();
              // LOCAL ENV
-             if (config('app.env') == 'production') {
-                //  if (config('app.env') == 'local'){
+                // if (config('app.env') == 'production') {
+                  if (config('app.env') == 'local'){
                 $leftImageName = $slug . '-' . $currentDate . '' . uniqid() . '-left' .'.' . $leftImage->getClientOriginalExtension();
                 if (!Storage::disk('public')->exists($postImagePath)) {
                     Storage::disk('public')->makeDirectory($postImagePath, 0755, true);
@@ -122,8 +122,8 @@ class PostController extends Controller
                 Storage::disk('public')->put($postImagePath . $leftImageName, $resizeImage);
             }
             // PRODUCTION ENV
-            //  if (config('app.env') == 'production') {
-            if (config('app.env') == 'local') {
+             if (config('app.env') == 'production') {
+             // if (config('app.env') == 'local') {
                 $leftImageName = $slug . '-left-' . $currentDate . '' . uniqid();
 
                 // cloudinary
@@ -150,8 +150,8 @@ class PostController extends Controller
             // make unique name image
             $currentDate = Carbon::now()->toDateString();
             // LOCAL ENV
-             if (config('app.env') == 'production') {
-//            if (config('app.env') == 'local'){
+             // if (config('app.env') == 'production') {
+            if (config('app.env') == 'local'){
                 $rightImageName = $slug . '-' . $currentDate . '' . uniqid() . '-right' .'.' . $leftImage->getClientOriginalExtension();
                 if (!Storage::disk('public')->exists($postImagePath)) {
                     Storage::disk('public')->makeDirectory($postImagePath, 0755, true);
@@ -161,8 +161,8 @@ class PostController extends Controller
             }
 
             // PRODUCTION ENV
-            //  if (config('app.env') == 'production') {
-            if (config('app.env') == 'local') {
+            if (config('app.env') == 'production') {
+            // if (config('app.env') == 'local') {
                 $rightImageName = $slug . '-right-' . $currentDate . '' . uniqid();
 
                 // cloudinary
@@ -202,8 +202,8 @@ class PostController extends Controller
         $postImage = new PostImage();
 
         $postImage->post_id = $post->id;
-//        if (config('app.env') == 'production') {
-        if (config('app.env') == 'local') {
+        if (config('app.env') == 'production') {
+        // if (config('app.env') == 'local') {
             $postImage->main = $cloudinary_main_image_data['secure_url'];
             $postImage->float_left = $cloudinary_left_image_data['secure_url'];
             $postImage->float_right = $cloudinary_right_image_data['secure_url'];
