@@ -8,6 +8,7 @@ use App\Models\Blog\PostImage;
 use App\Models\Blog\Tag;
 use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
+use Cloudinary;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -73,6 +74,23 @@ class PostController extends Controller
                }
                $resizeImage = Image::make($mainImage)->resize(730, 400)->save();
                Storage::disk('public')->put($postImagePath . $mainImageName, $resizeImage);
+           }
+           // PRODUCTION ENV
+           if (config('app.env') == 'production') {
+//            if (config('app.env') == 'local') {
+               $imageName = $slug . '-' . $currentDate . '' . uniqid();
+
+               // cloudinary
+               $cloudinary_data = null;
+               $cloudinary_data = Cloudinary\Uploader::upload($request->image,
+                   array(
+                       "folder" => "laravel/hashnews/blog/",
+                       "public_id" => $imageName,
+                       "width" => 730,
+                       "height" => 400,
+                       "overwrite" => TRUE,
+                       "resource_type" => "image")
+               );
            }
 
        }
