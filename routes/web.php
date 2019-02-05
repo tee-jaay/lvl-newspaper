@@ -27,6 +27,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Backend\Adm
     Route::resource('blog/tag','Blog\TagController', ['names' => 'blog-tag']);
     // Post
     Route::resource('blog/post','Blog\PostController', ['names' => 'blog-post']);
+    // Cloudinary
+    Route::resource('cloudinary', 'Site\CloudinaryController');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -17,7 +17,7 @@ class CreateCloudinariesTable extends Migration
             $table->increments('id');
             $table->string('cloud_name');
             $table->string('api_key');
-            $table->string('api_secret');
+            $table->text('api_secret');
             $table->string('media_url');
             $table->timestamps();
         });

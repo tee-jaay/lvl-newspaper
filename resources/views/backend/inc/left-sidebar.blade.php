@@ -115,6 +115,14 @@
                 </ul>
             </li>
 
+            {{--CLOUDINARY--}}
+            <li class="{{Request::is('admin/cloudinary*')?'active':''}}">
+                <a href="{{route('admin.cloudinary.index')}}">
+                    <i class="material-icons">cloud</i>
+                    <span>Cloudinary</span>
+                </a>
+            </li>
+
             <li>
                 <a href="javascript:void(0);" class="menu-toggle">
                     <i class="material-icons">map</i>

@@ -17,7 +17,7 @@ class CloudinaryController extends Controller
     public function index()
     {
         $cloudinary = Cloudinary::all()->first();
-        return view('admin.cloudinary.index', compact('cloudinary'));
+        return view('backend.dashboard.cloudinary.index', compact('cloudinary'));
     }
 
     /**
@@ -27,7 +27,7 @@ class CloudinaryController extends Controller
      */
     public function create()
     {
-        return view('admin.cloudinary.create');
+        return view('backend.dashboard.cloudinary.create');
     }
 
     /**
@@ -48,7 +48,7 @@ class CloudinaryController extends Controller
         $cloudinary = new Cloudinary();
         $cloudinary->cloud_name = $request->cloud_name;
         $cloudinary->api_key = $request->api_key;
-        $cloudinary->api_secret = $request->api_secret;
+        $cloudinary->api_secret = encrypt($request->api_secret);
         $cloudinary->media_url = $request->media_url;
         $cloudinary->save();
 
@@ -76,7 +76,7 @@ class CloudinaryController extends Controller
      */
     public function edit(Cloudinary $cloudinary)
     {
-        return view('admin.cloudinary.edit',compact('cloudinary'));
+        return view('backend.dashboard.cloudinary.edit',compact('cloudinary'));
     }
 
     /**
@@ -99,7 +99,7 @@ class CloudinaryController extends Controller
 
         $cloudinary->cloud_name = $request->cloud_name;
         $cloudinary->api_key = $request->api_key;
-        $cloudinary->api_secret = $request->api_secret;
+        $cloudinary->api_secret = encrypt($request->api_secret);
         $cloudinary->media_url = $request->media_url;
 
         $cloudinary->update();
