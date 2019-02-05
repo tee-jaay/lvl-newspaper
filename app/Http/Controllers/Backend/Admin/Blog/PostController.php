@@ -83,44 +83,66 @@ class PostController extends Controller
                 $resizeImage = Image::make($mainImage)->resize(730, 400)->save();
                 Storage::disk('public')->put($postImagePath . $mainImageName, $resizeImage);
             }
-            // PRODUCTION ENV
-//           if (config('app.env') == 'production') {
+             // PRODUCTION ENV
+                //  if (config('app.env') == 'production') {
             if (config('app.env') == 'local') {
-                $mainImageName = $slug . '-' . $currentDate . '' . uniqid();
+                $mainImageName = $slug . '-main-' . $currentDate . '' . uniqid();
 
                 // cloudinary
-                $cloudinary_data = null;
-                $cloudinary_data = Cloudinary\Uploader::upload($request->main,
+                $cloudinary_main_image_data = null;
+                $cloudinary_main_image_data = Cloudinary\Uploader::upload(
+                    $request->main,
                     array(
                         "folder" => "laravel/hashnews/blog/" . $categoryName . '/',
+                        "public_id" => $mainImageName,
                         "width" => 730,
                         "height" => 400,
                         "overwrite" => TRUE,
+                        "use_filename" => TRUE,
                         "resource_type" => "image")
                 );
-//                dd($cloudinary_data);
             }
         }else{
             $mainImageName = "default-main.png";
         }
 
         // left image
-//        $leftImage = $request->file('float_left');
-//        if (isset($leftImage)){
-//            // make unique name image
-//            $currentDate = Carbon::now()->toDateString();
-//            // LOCAL ENV
-//            // if (config('app.env') == 'production') {
-//            if (config('app.env') == 'local'){
-//                $leftImageName = $slug . '-' . $currentDate . '' . uniqid() . '-left' .'.' . $leftImage->getClientOriginalExtension();
-//                if (!Storage::disk('public')->exists($postImagePath)) {
-//                    Storage::disk('public')->makeDirectory($postImagePath, 0755, true);
-//                }
-//                $resizeImage = Image::make($leftImage)->resize(359, 534)->save();
-//                Storage::disk('public')->put($postImagePath . $leftImageName, $resizeImage);
-//            }
-//
-//        }
+        $leftImage = $request->file('float_left');
+        if (isset($leftImage)){
+             // make unique name image
+            $currentDate = Carbon::now()->toDateString();
+             // LOCAL ENV
+             if (config('app.env') == 'production') {
+                //  if (config('app.env') == 'local'){
+                $leftImageName = $slug . '-' . $currentDate . '' . uniqid() . '-left' .'.' . $leftImage->getClientOriginalExtension();
+                if (!Storage::disk('public')->exists($postImagePath)) {
+                    Storage::disk('public')->makeDirectory($postImagePath, 0755, true);
+                }
+                $resizeImage = Image::make($leftImage)->resize(359, 534)->save();
+                Storage::disk('public')->put($postImagePath . $leftImageName, $resizeImage);
+            }
+            // PRODUCTION ENV
+            //  if (config('app.env') == 'production') {
+            if (config('app.env') == 'local') {
+                $leftImageName = $slug . '-left-' . $currentDate . '' . uniqid();
+
+                // cloudinary
+                $cloudinary_left_image_data = null;
+                $cloudinary_left_image_data = Cloudinary\Uploader::upload($request->float_left,
+                    array(
+                        "folder" => "laravel/hashnews/blog/" . $categoryName . '/',
+                        "public_id" => $leftImageName,
+                        "width" => 359,
+                        "height" => 534,
+                        "overwrite" => TRUE,
+                        "use_filename" => TRUE,
+                        "resource_type" => "image")
+                );
+            }
+
+        }else{
+            $leftImageName = "default-left.png";
+        }
 
         // right image
 //        $rightImage = $request->file('float_right');
@@ -161,9 +183,11 @@ class PostController extends Controller
         $postImage->post_id = $post->id;
 //        if (config('app.env') == 'production') {
         if (config('app.env') == 'local') {
-            $postImage->main = $cloudinary_data['secure_url'];
+            $postImage->main = $cloudinary_main_image_data['secure_url'];
+            $postImage->float_left = $cloudinary_left_image_data['secure_url'];
         } else {
             $postImage->main = $mainImageName;
+            $postImage->float_left = $leftImageName;
         }
 
 //       $postImage->float_left = $leftImageName;
