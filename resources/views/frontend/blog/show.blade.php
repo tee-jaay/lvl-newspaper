@@ -133,7 +133,7 @@
                 </div>
 
                 <!-- Title -->
-                <h3 class="title">{{$post->title}}</h3>
+                <h3 class="title">{{ucfirst($post->title)}}</h3>
 
                 <!-- Image -->
                 <div class="image">
