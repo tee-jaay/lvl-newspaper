@@ -145,22 +145,43 @@ class PostController extends Controller
         }
 
         // right image
-//        $rightImage = $request->file('float_right');
-//        if (isset($rightImage)){
-//            // make unique name image
-//            $currentDate = Carbon::now()->toDateString();
-//            // LOCAL ENV
-//            // if (config('app.env') == 'production') {
+        $rightImage = $request->file('float_right');
+        if (isset($rightImage)){
+            // make unique name image
+            $currentDate = Carbon::now()->toDateString();
+            // LOCAL ENV
+             if (config('app.env') == 'production') {
 //            if (config('app.env') == 'local'){
-//                $rightImageName = $slug . '-' . $currentDate . '' . uniqid() . '-right' .'.' . $leftImage->getClientOriginalExtension();
-//                if (!Storage::disk('public')->exists($postImagePath)) {
-//                    Storage::disk('public')->makeDirectory($postImagePath, 0755, true);
-//                }
-//                $resizeImage = Image::make($rightImage)->resize(352, 271)->save();
-//                Storage::disk('public')->put($postImagePath . $rightImageName, $resizeImage);
-//            }
-//
-//        }
+                $rightImageName = $slug . '-' . $currentDate . '' . uniqid() . '-right' .'.' . $leftImage->getClientOriginalExtension();
+                if (!Storage::disk('public')->exists($postImagePath)) {
+                    Storage::disk('public')->makeDirectory($postImagePath, 0755, true);
+                }
+                $resizeImage = Image::make($rightImage)->resize(352, 271)->save();
+                Storage::disk('public')->put($postImagePath . $rightImageName, $resizeImage);
+            }
+
+            // PRODUCTION ENV
+            //  if (config('app.env') == 'production') {
+            if (config('app.env') == 'local') {
+                $rightImageName = $slug . '-right-' . $currentDate . '' . uniqid();
+
+                // cloudinary
+                $cloudinary_right_image_data = null;
+                $cloudinary_right_image_data = Cloudinary\Uploader::upload($request->float_right,
+                    array(
+                        "folder" => "laravel/hashnews/blog/" . $categoryName . '/',
+                        "public_id" => $rightImageName,
+                        "width" => 352,
+                        "height" => 271,
+                        "overwrite" => TRUE,
+                        "use_filename" => TRUE,
+                        "resource_type" => "image")
+                );
+            }
+
+        }else{
+            $rightImageName = "default-right.png";
+        }
 
         $post = new Post();
 
@@ -185,13 +206,12 @@ class PostController extends Controller
         if (config('app.env') == 'local') {
             $postImage->main = $cloudinary_main_image_data['secure_url'];
             $postImage->float_left = $cloudinary_left_image_data['secure_url'];
+            $postImage->float_right = $cloudinary_right_image_data['secure_url'];
         } else {
             $postImage->main = $mainImageName;
             $postImage->float_left = $leftImageName;
+            $postImage->float_right = $rightImageName;
         }
-
-//       $postImage->float_left = $leftImageName;
-//       $postImage->float_right = $rightImageName;
 
         $postImage->save();
 
