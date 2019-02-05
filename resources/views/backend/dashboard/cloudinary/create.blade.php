@@ -1,4 +1,4 @@
-@extends('Backend.layouts.main')
+@extends('backend.layouts.main')
 
 @section('title','Cloudinary')
 
