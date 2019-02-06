@@ -13,7 +13,7 @@ class NewsArticleImageSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        for($i = 1; $i < 143; $i++) {
+        for($i = 1; $i < 101; $i++) {
             App\Models\News\NewsArticleImages::create([
                 'article_id' => $i,
                 'header' => $faker->imageUrl(770, 294),
