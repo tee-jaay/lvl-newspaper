@@ -74,12 +74,14 @@
                         </div>
 
                         <!-- Title -->
-                        <h3 class="title"><a href="{{route('post.show', $post->slug)}}">{{$post->title}}</a></h3>
+                        <h3 class="title"><a href="{{route('post.show', $post->slug)}}">{{ucfirst($post->title)}}</a></h3>
 
                         <!-- Image -->
                         <a href="{{route('post.show', $post->slug)}}" class="image">
                             @if(config('app.env')=='local')
-                                <img src="{{Storage::disk('public')->url('blog/post/'.$post->category->slug.'/'.$post->image->main)}}" alt="{{$post->title}}">
+                                @if (isset($post->image->main))
+                                    <img src="{{Storage::disk('public')->url('blog/post/'.$post->category->slug.'/'.$post->image->main)}}" alt="{{$post->title}}">
+                                @endif
                             @else
                                 @if (isset($post->image->main))
                                     <img src="{{$post->image->main}}" alt="{{$post->title}}">

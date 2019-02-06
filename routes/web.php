@@ -27,6 +27,16 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Backend\Adm
     Route::resource('blog/tag','Blog\TagController', ['names' => 'blog-tag']);
     // Post
     Route::resource('blog/post','Blog\PostController', ['names' => 'blog-post']);
+
+    // ------ News ------ //
+    // Category
+    Route::resource('news/category','News\CategoryController', ['names' => 'news-category']);
+    // Tag
+    Route::resource('news/tag','News\TagController', ['names' => 'news-tag']);
+    // Post
+    Route::resource('news/post','News\ArticleController', ['names' => 'news-article']);
+
+    //--------------------//
     // Cloudinary
     Route::resource('cloudinary', 'Site\CloudinaryController');
 });

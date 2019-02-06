@@ -37,7 +37,7 @@
                     <span>Home</span>
                 </a>
             </li>
-
+            {{--Blog--}}
             <li class="{{Request::is('admin/blog*')?'active':''}}" >
                 <a href="javascript:void(0);" class="menu-toggle">
                     <i class="material-icons">widgets</i>
@@ -114,7 +114,83 @@
 
                 </ul>
             </li>
+            {{--News--}}
+            <li class="{{Request::is('admin/news*')?'active':''}}" >
+                <a href="javascript:void(0);" class="menu-toggle">
+                    <i class="material-icons">pages</i>
+                    <span>News</span>
+                </a>
+                <ul class="ml-menu">
+                    <li class="{{Request::is('admin/news/category*')?'active':''}}">
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons extra">list_alt</i>
+                            <span>Categories</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li class="{{Request::is('admin/news/category')?'active':''}}">
+                                <a href="{{route('admin.news-category.index')}}">
+                                    <i class="material-icons">list</i>
+                                    <span>All Categories</span>
+                                </a>
+                            </li>
 
+                            <li class="{{Request::is('admin/news/category/create')?'active':''}}">
+                                <a href="{{route('admin.news-category.create')}}">
+                                    <i class="material-icons">add</i>
+                                    <span>New Category</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="{{Request::is('admin/news/tag*')?'active':''}}">
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">collections_bookmark</i>
+                            <span>Tags</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li class="{{Request::is('admin/news/tag')?'active':''}}">
+                                <a href="{{route('admin.news-tag.index')}}">
+                                    <i class="material-icons">list</i>
+                                    <span>All Tags</span>
+                                </a>
+                            </li>
+
+                            <li class="{{Request::is('admin/news/tag/create')?'active':''}}">
+                                <a href="{{route('admin.blog-tag.create')}}">
+                                    <i class="material-icons">add</i>
+                                    <span>New Tag</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="{{Request::is('admin/news/article*')?'active':''}}">
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">featured_play_list</i>
+                            <span>Articles</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li class="{{Request::is('admin/news/article')?'active':''}}">
+                                <a href="{{route('admin.news-article.index')}}">
+                                    <i class="material-icons">description</i>
+                                    <span>All Articles</span>
+                                </a>
+                            </li>
+
+                            <li class="{{Request::is('admin/news/article/create')?'active':''}}">
+                                <a href="{{route('admin.news-article.create')}}">
+                                    <i class="material-icons">add</i>
+                                    <span>New Article</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
             {{--CLOUDINARY--}}
             <li class="{{Request::is('admin/cloudinary*')?'active':''}}">
                 <a href="{{route('admin.cloudinary.index')}}">

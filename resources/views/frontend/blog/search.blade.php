@@ -53,7 +53,7 @@
                         <div class="content">
 
                             <!-- Title -->
-                            <h4 class="title"><a href="{{route('post.show', $post->slug)}}">{{$post->title}}</a></h4>
+                            <h4 class="title"><a href="{{route('post.show', $post->slug)}}">{{ucfirst($post->title)}}</a></h4>
 
                             <!-- Meta -->
                             <div class="meta fix">

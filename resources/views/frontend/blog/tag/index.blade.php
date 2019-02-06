@@ -74,7 +74,7 @@
                         </div>
 
                         <!-- Title -->
-                        <h3 class="title"><a href="{{route('post.show', $post->slug)}}">{{$post->title}}</a></h3>
+                        <h3 class="title"><a href="{{route('post.show', $post->slug)}}">{{ucfirst($post->title)}}</a></h3>
 
                         <!-- Image -->
                         <a href="{{route('post.show', $post->slug)}}" class="image">
