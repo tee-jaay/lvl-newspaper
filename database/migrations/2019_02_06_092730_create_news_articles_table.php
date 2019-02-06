@@ -17,7 +17,7 @@ class CreateNewsArticlesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('author_id');
             $table->unsignedInteger('category_id');
-            $table->string('title');
+            $table->string('title')->unique();
             $table->text('dropcap');
             $table->string('top_d_block')->nullable();
             $table->text('mid_text')->nullable();
