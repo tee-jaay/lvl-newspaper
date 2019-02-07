@@ -1,6 +1,6 @@
 @extends('frontend.layout.news')
 
-@section('title','News - ' .ucfirst($tag->name)))
+@section('title','News - ' .ucfirst($tag->name))
 
 @push('css')
 
