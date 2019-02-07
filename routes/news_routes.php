@@ -5,11 +5,14 @@
  * Date: 1/25/19
  * Time: 11:59 PM
  */
-// news home
+// News home
 Route::get('/news', 'Frontend\News\ArticleController@index')->name('news');
-// category
+// Category
 Route::get('/news/category/{category}', 'Frontend\News\ArticleController@articlesByCategory')->name('articlesByCategory');
-// tag
+// Tag
 Route::get('/news/tag/{tag}', 'Frontend\News\ArticleController@articlesByTag')->name('articlesByTag');
-// news
+// News
 Route::resource('/news','Frontend\News\ArticleController');
+// Article Search
+Route::get('news-article/search', 'Frontend\News\ArticleSearchController@search')->name('news.search');
+

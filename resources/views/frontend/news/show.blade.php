@@ -1,6 +1,10 @@
 @extends('frontend.layout.news')
+@if (isset($article->title))
+    @section('title', ucfirst($article->title))
+    @else
+    @section('title','')
+@endif
 
-@section('title', ucfirst($article->title))
 
 @push('css')
     <style>
@@ -26,14 +30,27 @@
 
                 <!-- Page Banner Start -->
                 <div class="col-12">
-                    <div class="post-header" style="background-image: url({{$article->image->header}})">
+                    <div class="post-header"
+                         @if (isset($article->image->header))
+                         style="background-image: url({{$article->image->header}})">
+                         @else
+                                 >
+                         @endif
+
 
                         <!-- Title -->
-                        <h3 class="title">{{ucfirst($article->title)}}</h3>
+                             @if (isset($article->title))
+                                 <h3 class="title">{{ucfirst($article->title)}}</h3>
+                                 @else
+                                 <h3 class="title"></h3>
+                             @endif
+
 
                         <!-- Meta -->
                         <div class="meta fix">
-                            <a href="#" class="meta-item category fashion" style="background-color: {{$article->category['bg_color']}}">{{$article->category['name']}}</a>
+                            @if (isset($article->category))
+                                <a href="{{route('articlesByCategory', $article->category->slug)}}" class="meta-item category fashion" style="background-color: {{$article->category['bg_color']}}">{{$article->category->name}}</a>
+                            @endif
                             <a href="#" class="meta-item author"><img src="{{$article->author->profile->image}}" alt="{{$article->author->name}}">{{$article->author->name}}</a>
                             <span class="meta-item date"><i class="fa fa-clock-o"></i>{{date('d F Y', strtotime($article->created_at))}}</span>
                             <a href="#" class="meta-item comments"><i class="fa fa-comments"></i>({{$article->comments->count()}})</a>

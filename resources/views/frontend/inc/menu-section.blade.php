@@ -115,7 +115,11 @@
 
                         <!-- Header Search Form -->
                         <div class="header-search-form">
-                            <form action="{{route('post.search')}}" method="get">
+                            @if (Request::is('news*'))
+                                <form action="{{route('news.search')}}" method="get">
+                            @else
+                                <form action="{{route('post.search')}}" method="get">
+                            @endif
                                 <input type="text" name="query" placeholder="Search Here">
                             </form>
                         </div>

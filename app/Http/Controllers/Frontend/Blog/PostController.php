@@ -50,19 +50,6 @@ class PostController extends Controller
         return view('frontend.blog.show', compact('post','previous', 'next', 'randomPosts'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-
     // Posts by category
     public function postsByCategory($slug){
         $category = Category::where('slug',$slug)->first();
