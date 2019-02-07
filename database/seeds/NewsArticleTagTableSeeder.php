@@ -14,7 +14,7 @@ class NewsArticleTagTableSeeder extends Seeder
         for($i = 1; $i < 301; $i++) {
             DB::table('news_article_news_tag')->insert(
                 [
-                    'news_article_id' => rand(1, 142),
+                    'news_article_id' => rand(1, 100),
                     'news_tag_id' => rand(1, 30),
                 ]
             );
