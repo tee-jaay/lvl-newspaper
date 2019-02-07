@@ -21,7 +21,7 @@
                                     <!-- Submenu End -->
 
                                 </li>
-                                <li><a href="{{route('news')}}">News</a></li>
+                                <li><a href="{{route('news.index')}}">News</a></li>
                                 {{--<li><a href="category-sports.html">Sports</a></li>--}}
 
                                 <li class="has-dropdown"><a href="{{route('blog')}}">Blog Categories</a>

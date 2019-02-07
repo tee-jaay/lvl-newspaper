@@ -15,7 +15,7 @@ class CreateNewsArticleImagesTable extends Migration
     {
         Schema::create('news_article_images', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('article_id');
+            $table->unsignedInteger('news_article_id');
             $table->text('header');
             $table->text('right');
             $table->text('main');

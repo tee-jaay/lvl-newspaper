@@ -4,11 +4,13 @@ namespace App\Models\News;
 
 use Illuminate\Database\Eloquent\Model;
 
-class NewsArticleImages extends Model
+class NewsComment extends Model
 {
-    protected $fillable = ['article_id', 'header', 'right', 'main', 'bottom'];
-
     public function article(){
         return $this->belongsTo(NewsArticle::class);
+    }
+
+    public function commenter(){
+        return $this->belongsTo(User::class);
     }
 }

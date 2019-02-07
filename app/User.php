@@ -4,6 +4,8 @@ namespace App;
 
 use App\Models\Blog\Comment;
 use App\Models\Blog\Post;
+use App\Models\News\NewsArticle;
+use App\Models\News\NewsComment;
 use App\Models\Site\UserProfile;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -43,6 +45,15 @@ class User extends Authenticatable
     public function comments(){
 //        return $this->hasMany('App\Models\Comment');
         return $this->hasMany(Comment::class);
+    }
+
+    // News
+    public function articles(){
+        return $this->belongsToMany(NewsArticle::class);
+    }
+
+    public function newsComments(){
+        return $this->hasMany(NewsComment::class);
     }
 
 }

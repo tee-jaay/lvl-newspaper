@@ -5,11 +5,12 @@
  * Date: 1/25/19
  * Time: 11:56 PM
  */
+// blog home
 Route::get('/blog', 'Frontend\Blog\PostController@index')->name('blog');
-
+// category
 Route::get('/blog/category/{category}', 'Frontend\Blog\PostController@postsByCategory')->name('postByCategory');
 Route::get('/posts/category/{category}', 'Frontend\Blog\PostController@postsByCategory')->name('postByCategory');
-
+// tag
 Route::get('/blog/tag/{tag}', 'Frontend\Blog\PostController@postsByTag')->name('postByTag');
 Route::get('/posts/tag/{tag}', 'Frontend\Blog\PostController@postsByTag')->name('postByTag');
 
