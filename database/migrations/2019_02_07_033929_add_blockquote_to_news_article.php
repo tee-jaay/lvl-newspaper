@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNewsArticleTagTable extends Migration
+class AddBlockquoteToNewsArticle extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateNewsArticleTagTable extends Migration
      */
     public function up()
     {
-        Schema::create('news_article_news_tag', function (Blueprint $table) {
-            $table->increments('id');
-             $table->unsignedInteger('news_article_id');
-            $table->unsignedInteger('news_tag_id');
-            $table->timestamps();
+        Schema::table('news_articles', function (Blueprint $table) {
+            $table->string('blockquote')->nullable();
         });
     }
 
@@ -28,6 +25,8 @@ class CreateNewsArticleTagTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news_article_tag');
+        Schema::table('news_articles', function (Blueprint $table) {
+            $table->dropColumn('blockquote');
+        });
     }
 }

@@ -13,6 +13,7 @@ $factory->define(App\Models\News\NewsArticle::class, function (Faker $faker) {
         'mid_text' => $faker->paragraph,
         'bottom_d_block' => $faker->sentence(14),
         'right_list' => $faker->sentence(15),
+        'blockquote' => $faker->sentence(12),
         'bottom_text' => $faker->paragraph
     ];
 });

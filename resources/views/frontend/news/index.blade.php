@@ -44,6 +44,17 @@
                         @endforeach
                     @endif
 
+                        <style>
+                            .page-link{
+                                color:#999 !important;
+                            }
+                            .page-item.active .page-link {
+                                color: #fff !important;
+                                background-color: #999 !important;
+                                border-color: #999 !important;
+                            }
+                        </style>
+
                     {{$articles->links()}}
 
                     {{--<div class="page-pagination text-center col-12">--}}

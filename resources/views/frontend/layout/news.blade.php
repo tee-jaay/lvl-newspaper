@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Hashnews - @yield('title')</title>
+    <title>Hashnews | @yield('title')</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
@@ -32,7 +32,10 @@
 
 @include('frontend.inc.breaking-news-section')
 
-@include('frontend.news.partials.popular-section')
+    @if (Request::is('*news'))
+        @include('frontend.news.partials.popular-section')
+    @endif
+
 
 <!-- Blog Section Start -->
     <div class="blog-section section mt-20">
@@ -44,8 +47,9 @@
                 {{--Content--}}
                 @yield('content')
                 {{--Content--}}
-
-                @include('frontend.news.partials.sidebar')
+                @if (Request::is('*news'))
+                    @include('frontend.news.partials.sidebar')
+                @endif
 
             </div><!-- Feature Post Row End -->
 
