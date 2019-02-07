@@ -30,7 +30,14 @@ class ArticleController extends Controller
     public function show($slug)
     {
         $article = NewsArticle::where('slug', $slug)->first();
-        return view('frontend.news.show', compact('article'));
+
+        // previous-next post links
+        $previous = NewsArticle::where('id', '<', $article->id)->orderBy('id','desc')->first();
+        $next = NewsArticle::where('id', '>', $article->id)->orderBy('id')->first();
+
+        return view('frontend.news.show', compact('article','previous', 'next'));
+
+
 
     }
 
