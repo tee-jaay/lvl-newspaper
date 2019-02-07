@@ -16,7 +16,7 @@ class CreateNewsArticlesTable extends Migration
         Schema::create('news_articles', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('author_id');
-            $table->unsignedInteger('category_id');
+            $table->unsignedInteger('news_category_id');
             $table->string('title')->unique();
             $table->text('dropcap');
             $table->string('top_d_block')->nullable();

@@ -32,6 +32,8 @@
 
 @include('frontend.inc.breaking-news-section')
 
+@include('frontend.news.partials.popular-section')
+
 <!-- Blog Section Start -->
     <div class="blog-section section mt-20">
         <div class="container">
@@ -43,7 +45,7 @@
                 @yield('content')
                 {{--Content--}}
 
-                @include('frontend.blog.partials.sidebar')
+                @include('frontend.news.partials.sidebar')
 
             </div><!-- Feature Post Row End -->
 

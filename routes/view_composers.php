@@ -26,14 +26,25 @@ View::composer('frontend.inc.menu-section', function ($view) {
     $posts = App\Models\Blog\Post::all()->groupBy('category_id');
     $view->with('posts', $posts);
 });
-// Sidebar categories
+// Blog Sidebar categories
 View::composer('frontend.blog.partials.sidebar', function ($view) {
     $categories = App\Models\Blog\Category::all();
     $view->with('categories', $categories);
 });
-// Sidebar tags
+// Blog Sidebar tags
 View::composer('frontend.blog.partials.sidebar', function ($view) {
     $tags = App\Models\Blog\Tag::all();
+    $view->with('tags', $tags);
+});
+//////////
+// News Sidebar categories
+View::composer('frontend.news.partials.sidebar', function ($view) {
+    $categories = App\Models\News\NewsCategory::all();
+    $view->with('categories', $categories);
+});
+// News Sidebar tags
+View::composer('frontend.news.partials.sidebar', function ($view) {
+    $tags = App\Models\News\NewsTag::all();
     $view->with('tags', $tags);
 });
 // Footer

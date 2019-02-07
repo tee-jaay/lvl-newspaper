@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class NewsArticle extends Model
 {
-    protected $fillable = ['author_id', 'category_id', 'title', 'dropcap', 'top_d_block', 'mid_text', 'bottom_d_block', 'right_list', 'bottom_text'];
+    protected $fillable = ['author_id', 'news_category_id', 'title', 'dropcap', 'top_d_block', 'mid_text', 'bottom_d_block', 'right_list', 'bottom_text'];
 
     public function author(){
         return $this->belongsTo(User::class);
