@@ -81,7 +81,7 @@
         @endif
 
         <div>
-            {!! $posts->links("pagination::default") !!}
+            {!! $posts->appends($_GET)->links("pagination::default") !!}
         </div>
 
     </div>

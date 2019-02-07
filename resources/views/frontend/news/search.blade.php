@@ -68,7 +68,7 @@
                                         }
                                     </style>
 
-                                    {{$articles->links()}}
+                                    {{$articles->appends($_GET)->links()}}
 
                             </div>
                         </div><!-- Post Block Body End -->
