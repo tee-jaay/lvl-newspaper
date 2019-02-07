@@ -7,6 +7,7 @@ use App\Models\News\NewsCategory;
 use App\Models\News\NewsTag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class ArticleController extends Controller
 {
@@ -30,6 +31,13 @@ class ArticleController extends Controller
     public function show($slug)
     {
         $article = NewsArticle::where('slug', $slug)->first();
+
+        // post view count
+        $newsKey = 'news_' . $article->id;
+        if (!Session::has($newsKey)){
+            $article->increment('view_count');
+            Session::put($newsKey, 1);
+        }
 
         // previous-next post links
         $previous = NewsArticle::where('id', '<', $article->id)->orderBy('id','desc')->first();

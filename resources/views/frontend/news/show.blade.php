@@ -54,7 +54,7 @@
                             <a href="#" class="meta-item author"><img src="{{$article->author->profile->image}}" alt="{{$article->author->name}}">{{$article->author->name}}</a>
                             <span class="meta-item date"><i class="fa fa-clock-o"></i>{{date('d F Y', strtotime($article->created_at))}}</span>
                             <a href="#" class="meta-item comments"><i class="fa fa-comments"></i>({{$article->comments->count()}})</a>
-                            <span class="meta-item view"><i class="fa fa-eye"></i>(3483)</span>
+                            <span class="meta-item view"><i class="fa fa-eye"></i>({{$article->view_count}})</span>
                         </div>
 
                     </div>
