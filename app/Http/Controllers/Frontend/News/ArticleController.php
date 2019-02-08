@@ -18,7 +18,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = NewsArticle::paginate(12)->onEachSide(1);
+        $articles = NewsArticle::paginate(8)->onEachSide(1);
         return view('frontend.news.index', compact('articles'));
     }
 

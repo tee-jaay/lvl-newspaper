@@ -13,6 +13,12 @@ Route::get('/news/category/{category}', 'Frontend\News\ArticleController@article
 Route::get('/news/tag/{tag}', 'Frontend\News\ArticleController@articlesByTag')->name('articlesByTag');
 // News
 Route::resource('/news','Frontend\News\ArticleController');
+//Comment
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::post('news/comment/{post}', 'Frontend\News\NewsCommentController@store')->name('news.comment.store');
+
+});
 // Article Search
 Route::get('news-article/search', 'Frontend\News\ArticleSearchController@search')->name('news.search');
 

@@ -15,11 +15,10 @@
             <!-- Post Block Body Start -->
             <div class="body">
                 <div class="row">
-
                 @if (isset($articles))
                     @foreach ($articles as $article)
                         <!-- Post Start -->
-                            <div class="post post-overlay life-style-post post-separator-border col-md-6 col-12">
+                            <div class="post post-large politic-post post-separator-border col-12">
                                 <div class="post-wrap">
 
                                     <!-- Image -->
@@ -42,13 +41,19 @@
                                             <span class="meta-item date"><i class="fa fa-clock-o"></i>{{date('d F Y', strtotime($article->created_at))}}</span>
                                         </div>
 
+                                        <!-- Description -->
+                                        <p>{{str_limit($article->dropcap, 200)}}</p>
+
+                                        <!-- Read More -->
+                                        <a href="{{ route('news.show', $article->slug)}}" class="read-more">continue
+                                            reading</a>
+
                                     </div>
 
                                 </div>
                             </div><!-- Post End -->
                         @endforeach
                     @endif
-
                     <style>
                         .page-link {
                             color: #999 !important;
@@ -63,12 +68,17 @@
 
                     {{$articles->links()}}
 
-                </div>
-            </div><!-- Post Block Body End -->
 
-        </div><!-- Post Block Wrapper End -->
+                </div>
+            </div>
+            <!-- Post Block Body End -->
+
+        </div>
+        <!-- Post Block Wrapper End -->
 
     </div>
+
+
 @endsection
 
 @push('js')

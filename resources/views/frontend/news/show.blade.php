@@ -163,17 +163,17 @@
                     <!-- Post Author Start -->
                     <div class="post-author fix mb-50">
 
-                        <div class="image float-left"><img src="img/post/post-author-1.jpg" alt="post-author"></div>
+                        <div class="image float-left"><img src="{{$article->author->profile->image}}" alt="{{$article->author->name}}"></div>
 
                         <div class="content fix">
-                            <h5><a href="#">Alex bin do</a></h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris efficitur is fringillas. Sed cursus mi, ut auctor tellus  Curabitur susvenenatis.</p>
+                            <h5><a href="#">{{$article->author->name}}</a></h5>
+                            <p>{{$article->author->profile->bio}}</p>
                             <div class="social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <a href="#"><i class="fa fa-dribbble"></i></a>
-                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                                <a href="{{$article->author->profile->facebook}}"><i class="fa fa-facebook"></i></a>
+                                <a href="{{$article->author->profile->twitter}}"><i class="fa fa-twitter"></i></a>
+                                <a href="{{$article->author->profile->google_plus}}"><i class="fa fa-google-plus"></i></a>
+                                <a href="{{$article->author->profile->dribbble}}"><i class="fa fa-dribbble"></i></a>
+                                <a href="{{$article->author->profile->pinterest}}"><i class="fa fa-pinterest"></i></a>
                             </div>
                         </div>
 
@@ -403,53 +403,11 @@
 
                     </div><!-- Post Block Wrapper End -->
 
-                    <!-- Post Block Wrapper Start -->
-                    <div class="post-block-wrapper">
+                <!-- Comments Wrapper Start -->
 
-                        <!-- Post Block Head Start -->
-                        <div class="head">
+                @include('frontend.news.partials.comments')
 
-                            <!-- Title -->
-                            <h4 class="title">Leave a Comment</h4>
-
-                        </div><!-- Post Block Head End -->
-
-                        <!-- Post Block Body Start -->
-                        <div class="body">
-
-                            <div class="post-comment-form">
-                                <form action="#" class="row">
-
-                                    <div class="col-md-6 col-12 mb-20">
-                                        <label for="name">Name <sup>*</sup></label>
-                                        <input type="text" id="name" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
-                                    </div>
-
-                                    <div class="col-md-6 col-12 mb-20">
-                                        <label for="email">Email <sup>*</sup></label>
-                                        <input type="text" id="email">
-                                    </div>
-
-                                    <div class="col-12 mb-20">
-                                        <label for="website">Website <sup>*</sup></label>
-                                        <input type="text" id="website">
-                                    </div>
-
-                                    <div class="col-12 mb-20">
-                                        <label for="message">Message <sup>*</sup></label>
-                                        <textarea id="message"></textarea>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <input type="submit" value="Submit Comment">
-                                    </div>
-
-                                </form>
-                            </div>
-
-                        </div><!-- Post Block Body End -->
-
-                    </div><!-- Post Block Wrapper End -->
+                <!-- Comments Wrapper End -->
 
                 </div>
 

@@ -6,8 +6,8 @@
     </div><!-- Post Block Head End -->
     <div class="body">
 
-        @if (isset($post->comments))
-            @foreach ($post->comments as $comment)
+        @if (isset($article->comments))
+            @foreach ($article->comments as $comment)
                 <div class="comment">
                     <div class="row">
                         <div class="col-md-2">
@@ -53,8 +53,9 @@
             @guest()
                 <p>Please, <a href="{{route('login')}}" class="text-info">Login</a> to comment.</p>
             @else
-                <form action="{{route('comment.store', $post->id)}}" class="row" method="post">
+                <form action="{{route('news.comment.store', $article->id)}}" class="row" method="post">
                     @csrf
+
                     <div class="col-12 mb-20">
                         <h5>Logged in as <strong>{{Auth::user()->name}}</strong></h5>
                     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Models\News;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class NewsComment extends Model
@@ -10,7 +11,7 @@ class NewsComment extends Model
         return $this->belongsTo(NewsArticle::class);
     }
 
-    public function commenter(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
 }
