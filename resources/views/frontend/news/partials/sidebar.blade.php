@@ -92,7 +92,9 @@
 
                     <ul class="sidebar-category video-category">
                         @foreach ($categories as $category)
-                            <li><a href="/news/category/{{$category->slug}}">{{ucfirst($category->name)}} ({{$category->articles->count()}})</a></li>
+                            @if ($category->articles->count() > 0)
+                                <li><a href="/news/category/{{$category->slug}}">{{ucfirst($category->name)}} ({{$category->articles->count()}})</a></li>
+                            @endif
                         @endforeach
                     </ul>
 
@@ -155,7 +157,9 @@
                     </style>
                     <ul class="sidebar-tag">
                         @foreach ($tags as $tag)
-                            <a href="/news/tag/{{$tag->slug}}"><span class="badge badge-secondary">{{ucfirst($tag->name)}}</span></a>
+                            @if ($tag->articles->count()>0)
+                                <a href="/news/tag/{{$tag->slug}}"><span class="badge badge-secondary">{{ucfirst($tag->name)}}</span></a>
+                            @endif
                         @endforeach
                     </ul>
 

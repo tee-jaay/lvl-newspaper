@@ -49,16 +49,15 @@ class ArticleController extends Controller
 
     }
 
-
     public function articlesByCategory($slug){
         $category = NewsCategory::where('slug', $slug)->first();
-        $articles = $category->articles()->paginate(12)->onEachSide(1);
+        $articles = $category->articles()->paginate(18)->onEachSide(1);
         return view('frontend.news.category.index', compact('articles','category'));
     }
 
     public function articlesByTag($slug){
         $tag = NewsTag::where('slug', $slug)->first();
-        $articles = $tag->articles()->paginate(12)->onEachSide(1);
+        $articles = $tag->articles()->paginate(18)->onEachSide(1);
         return view('frontend.news.tag.index', compact('articles', 'tag'));
     }
 }
