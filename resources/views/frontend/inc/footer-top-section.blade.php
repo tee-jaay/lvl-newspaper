@@ -38,32 +38,7 @@
                 <!-- Title -->
                 <h4 class="widget-title">popular Posts</h4>
 
-                @if (isset($popular_posts))
-                    @foreach ($popular_posts as $post)
-                        <!-- Footer Widget Post Start -->
-                            <div class="footer-widget-post">
-                                <div class="post-wrap">
-
-                                    <!-- Image -->
-                                    <a href="{{route('post.show', $post->slug)}}" class="image"><img src="{{$post->image->main}}" alt="{{str_limit($post->title, 50, '')}}"></a>
-
-                                    <!-- Content -->
-                                    <div class="content">
-
-                                        <!-- Title -->
-                                        <h5 class="title"><a href="{{route('post.show', $post->slug)}}">{{str_limit($post->title, 50, '')}}</a></h5>
-
-                                        <!-- Meta -->
-                                        <div class="meta fix">
-                                            <span class="meta-item date"><i class="fa fa-clock-o"></i>{{date('d F Y', strtotime($post->created_at))}}</span>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div><!-- Footer Widget Post ENd -->
-                    @endforeach
-                @endif
+                @include('frontend.partials.footer-popular-posts')
 
             </div><!-- Footer Widget End -->
 
@@ -134,76 +109,10 @@
                 <!-- Title -->
                 <h4 class="widget-title">Top News</h4>
 
-                <!-- Footer Widget Post Start -->
-                <div class="footer-widget-post">
-                    <div class="post-wrap">
+                @include('frontend.partials.footer-top-news')
 
-                        <!-- Image -->
-                        <a href="post-details.html" class="image"><img src="{{asset('assets/Frontend/img/post/post-142.jpg')}}" alt="Post"></a>
-
-                        <!-- Content -->
-                        <div class="content">
-
-                            <!-- Title -->
-                            <h5 class="title"><a href="post-details.html">Australia announced squad for Bangladesh tour.</a></h5>
-
-                            <!-- Meta -->
-                            <div class="meta fix">
-                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2017</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div><!-- Footer Widget Post ENd -->
-
-                <!-- Footer Widget Post Start -->
-                <div class="footer-widget-post">
-                    <div class="post-wrap">
-
-                        <!-- Image -->
-                        <a href="post-details.html" class="image"><img src="{{asset('assets/Frontend/img/post/post-23.jpg')}}" alt="Post"></a>
-
-                        <!-- Content -->
-                        <div class="content">
-
-                            <!-- Title -->
-                            <h5 class="title"><a href="post-details.html">Fish Fry With green vegetables.</a></h5>
-
-                            <!-- Meta -->
-                            <div class="meta fix">
-                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2017</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div><!-- Footer Widget Post End -->
-
-                <!-- Footer Widget Post Start -->
-                <div class="footer-widget-post">
-                    <div class="post-wrap">
-
-                        <!-- Image -->
-                        <a href="post-details.html" class="image"><img src="{{asset('assets/Frontend/img/post/post-40.jpg')}}" alt="Post"></a>
-
-                        <!-- Content -->
-                        <div class="content">
-
-                            <!-- Title -->
-                            <h5 class="title"><a href="post-details.html">Hynpodia helps male travelers find healths.</a></h5>
-
-                            <!-- Meta -->
-                            <div class="meta fix">
-                                <span class="meta-item date"><i class="fa fa-clock-o"></i>10 March 2017</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div><!-- Footer Widget Post End -->
-
-            </div><!-- Footer Widget End -->
+            </div>
+            <!-- Footer Widget End -->
 
         </div>
     </div>

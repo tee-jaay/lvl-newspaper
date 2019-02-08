@@ -58,3 +58,8 @@ View::composer('frontend.inc.footer-top-section', function ($view) {
     $popular_posts = App\Models\Blog\Post::orderBy('view_count', 'DESC')->take(3)->get();
     $view->with('popular_posts', $popular_posts);
 });
+// Top news
+View::composer('frontend.inc.footer-top-section', function ($view) {
+    $top_news = App\Models\News\NewsArticle::orderBy('view_count', 'DESC')->take(3)->get();
+    $view->with('top_news', $top_news);
+});
