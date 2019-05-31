@@ -11,7 +11,7 @@
                                 <div class="post-wrap">
 
                                     <!-- Image -->
-                                    <div class="image"><img src="img/post/post-110.jpg" alt="post"></div>
+                                    <div class="image"><img src="http://lorempixel.com/365/292/sports" alt="post"></div>
 
                                     <!-- Content -->
                                     <div class="content">
@@ -31,7 +31,7 @@
                                 <div class="post-wrap">
 
                                     <!-- Image -->
-                                    <div class="image"><img src="img/post/post-111.jpg" alt="post"></div>
+                                    <div class="image"><img src="http://lorempixel.com/365/292/nature" alt="post"></div>
 
                                     <!-- Content -->
                                     <div class="content">
@@ -51,7 +51,7 @@
                                 <div class="post-wrap">
 
                                     <!-- Image -->
-                                    <div class="image"><img src="img/post/post-112.jpg" alt="post"></div>
+                                    <div class="image"><img src="http://lorempixel.com/365/292/cats" alt="post"></div>
 
                                     <!-- Content -->
                                     <div class="content">
